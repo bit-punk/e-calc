@@ -1,0 +1,41 @@
+<form [formGroup]="calculatorForm">
+  <table>
+    <tr>
+      <td><label for="daysPerYear">Days / Year:</label></td>
+      <td><input type="number" id="daysPerYear" formControlName="daysPerYear" title="Enter the number of days per year"></td>
+      <td>
+        <div *ngIf="daysPerYearControl?.invalid && (daysPerYearControl?.dirty || daysPerYearControl?.touched)">
+          <div *ngIf="daysPerYearControl?.hasError('required')">Days / Year is required.</div>
+          <div *ngIf="daysPerYearControl?.hasError('min')">Days / Year must be greater than or equal to 0.</div>
+          <div *ngIf="daysPerYearControl?.hasError('max')">Days / Year cannot exceed 365.</div>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td><label for="kiloWattsPerDay">Consumption per Day:</label></td>
+      <td><input type="number" id="kiloWattsPerDay" formControlName="kiloWattsPerDay" ></td>
+      <td><label for="kiloWattsPerDay">[kW]</label></td>
+      <td>
+        <div *ngIf="kiloWattsPerDayControl?.invalid && (kiloWattsPerDayControl?.dirty || kiloWattsPerDayControl?.touched)">
+          <div *ngIf="kiloWattsPerDayControl?.hasError('required')">kiloWatts / Day is required.</div>
+          <div *ngIf="kiloWattsPerDayControl?.hasError('min')">kiloWatts / Day must be greater than or equal to 0.</div>
+        </div>
+      </td>
+    </tr>
+    <tr *ngIf="calculatorForm.valid">
+      <td><label>resulting yearly consumption:</label></td>
+      <td>{{ consumptionPerYear }}</td>
+      <td><label>[kW]</label></td>
+    </tr>
+  </table>
+
+</form>
+
+
+<hr>
+
+<p>Form Value: {{ calculatorForm.value | json }}</p>
+
+<p>Form Status: {{ calculatorForm.status }}</p>
+<p>Form Errors: {{ calculatorForm.errors }}</p>
+

@@ -1,0 +1,52 @@
+<form [formGroup]="yearlyCostsCalculatorForm">
+
+  <table>
+    <tr>
+      <td><label for="standbyDeviceConsumption">Standby Device consumption:</label></td>
+      <td><input type="number" id="standbyDeviceConsumption" formControlName="standbyDeviceConsumption"></td>
+      <td><label for="standbyDeviceConsumption">[W]</label></td>
+      <td>
+        <div *ngIf="standbyDeviceConsumptionControl?.invalid && (standbyDeviceConsumptionControl?.dirty || standbyDeviceConsumptionControl?.touched)">
+          <div *ngIf="standbyDeviceConsumptionControl?.hasError('required')">Standby Device consumption is required.</div>
+          <div *ngIf="standbyDeviceConsumptionControl?.hasError('min')">Standby Device consumption must be greater than or equal to 0.</div>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td><label for="electricityPrice">Electricity price</label></td>
+      <td><input type="number" id="electricityPrice" formControlName="electricityPrice"></td>
+      <td><label for="electricityPrice">[€ / kWh]</label></td>
+      <td>
+        <div *ngIf="electricityPriceControl?.invalid && (electricityPriceControl?.dirty || electricityPriceControl?.touched)">
+          <div *ngIf="electricityPriceControl?.hasError('required')">The electricity price is required.</div>
+          <div *ngIf="electricityPriceControl?.hasError('min')">The electricity price must be greater than or equal to 0.</div>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td><label for="standbyHoursPerDay">Standby hours per day</label></td>
+      <td><input type="number" id="standbyHoursPerDay" formControlName="standbyHoursPerDay"></td>
+      <td><label for="standbyHoursPerDay">[h]</label></td>
+      <td>
+        <div *ngIf="standbyHoursPerDayControl?.invalid && (standbyHoursPerDayControl?.dirty || standbyHoursPerDayControl?.touched)">
+          <div *ngIf="standbyHoursPerDayControl?.hasError('required')">Standby hours per day is required.</div>
+          <div *ngIf="standbyHoursPerDayControl?.hasError('min')">Standby hours per day must be greater than or equal to 0.</div>
+        </div>
+      </td>
+    </tr>
+    <tr *ngIf="yearlyCostsCalculatorForm.valid">
+      <td><label>resulting yearly costs:</label></td>
+      <td>{{ costsPerYear }}</td>
+      <td><label>[€ / year]</label></td>
+    </tr>
+  </table>
+
+</form>
+
+<hr>
+
+<p>Form Value: {{ yearlyCostsCalculatorForm.value | json }}</p>
+
+<p>Form Status: {{ yearlyCostsCalculatorForm.status }}</p>
+<p>Form Errors: {{ yearlyCostsCalculatorForm.errors }}</p>
+

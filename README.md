@@ -25,3 +25,25 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+
+----
+
+# Build-Environment-Setup
+## NPM
+* Node.js
+* check if you already have npm installed:
+  ```npm -v```
+* Make sure npm is installed:
+  ```sudo apt install npm```
+
+## Installing the Angular Build-tools
+* see [Setting up the local environment and workspace](https://angular.io/guide/setup-local)
+* install the Angular cli-build-tools using npm:  
+  ```sudo npm install -g @angular/cli```
+* you can verify the successful installation of _ng_ using:  
+  ```ng version```
+
+
+# Building
+
