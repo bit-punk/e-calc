@@ -2,24 +2,13 @@
 
   <table>
     <tr>
-      <td><label for="standbyDeviceConsumption">Standby Device consumption:</label></td>
+      <td><label for="standbyDeviceConsumption">Standby Device consumption per hour:</label></td>
       <td><input type="number" id="standbyDeviceConsumption" formControlName="standbyDeviceConsumption"></td>
-      <td><label for="standbyDeviceConsumption">[W]</label></td>
+      <td><label for="standbyDeviceConsumption">[W / hour]</label></td>
       <td>
         <div *ngIf="standbyDeviceConsumptionControl?.invalid && (standbyDeviceConsumptionControl?.dirty || standbyDeviceConsumptionControl?.touched)">
           <div *ngIf="standbyDeviceConsumptionControl?.hasError('required')">Standby Device consumption is required.</div>
           <div *ngIf="standbyDeviceConsumptionControl?.hasError('min')">Standby Device consumption must be greater than or equal to 0.</div>
-        </div>
-      </td>
-    </tr>
-    <tr>
-      <td><label for="electricityPrice">Electricity price</label></td>
-      <td><input type="number" id="electricityPrice" formControlName="electricityPrice"></td>
-      <td><label for="electricityPrice">[€ / kWh]</label></td>
-      <td>
-        <div *ngIf="electricityPriceControl?.invalid && (electricityPriceControl?.dirty || electricityPriceControl?.touched)">
-          <div *ngIf="electricityPriceControl?.hasError('required')">The electricity price is required.</div>
-          <div *ngIf="electricityPriceControl?.hasError('min')">The electricity price must be greater than or equal to 0.</div>
         </div>
       </td>
     </tr>
@@ -34,9 +23,25 @@
         </div>
       </td>
     </tr>
+    <tr *ngIf="yearlyConsumptionInKiloWatts >= 0">
+      <td>resulting yearly power-consumption</td>
+      <td>{{ yearlyConsumptionInKiloWatts }}</td>
+      <td><label>[kW / year]]</label></td>
+    </tr>
+    <tr>
+    <td><label for="electricityPrice">Electricity price</label></td>
+    <td><input type="number" id="electricityPrice" formControlName="electricityPrice"></td>
+    <td><label for="electricityPrice">[€ / kWh]</label></td>
+    <td>
+    <div *ngIf="electricityPriceControl?.invalid && (electricityPriceControl?.dirty || electricityPriceControl?.touched)">
+          <div *ngIf="electricityPriceControl?.hasError('required')">The electricity price is required.</div>
+          <div *ngIf="electricityPriceControl?.hasError('min')">The electricity price must be greater than or equal to 0.</div>
+        </div>
+    </td>
+    </tr>
     <tr *ngIf="yearlyCostsCalculatorForm.valid">
       <td><label>resulting yearly costs:</label></td>
-      <td>{{ costsPerYear }}</td>
+      <td>{{ costsPerYear | number:'1.2-2' }}</td>
       <td><label>[€ / year]</label></td>
     </tr>
   </table>

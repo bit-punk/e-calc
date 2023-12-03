@@ -1,13 +1,13 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, ReactiveFormsModule} from '@angular/forms';
 import {Validators} from '@angular/forms';
-import {JsonPipe, NgIf} from "@angular/common";
+import {DecimalPipe, JsonPipe, NgIf} from "@angular/common";
 
 @Component({
   standalone: true,
   selector: 'app-calculator',
   templateUrl: './yearly-costs-calculator.component.html',
-  imports: [NgIf, ReactiveFormsModule, JsonPipe],
+  imports: [NgIf, ReactiveFormsModule, JsonPipe, DecimalPipe],
   styleUrls: ['./yearly-costs-calculator.component.css']
 })
 
@@ -17,6 +17,7 @@ export class YearlyCostsCalculatorComponent implements OnInit {
     electricityPrice: [null, [Validators.required, Validators.min(0)]],
     standbyHoursPerDay: [24, [Validators.required, Validators.min(0)]]
   });
+  yearlyConsumptionInKiloWatts: number = -1;
   costsPerYear: number = -1;
 
   constructor(private formBuilder: FormBuilder) {
@@ -30,14 +31,27 @@ export class YearlyCostsCalculatorComponent implements OnInit {
     });
   }
 
-  calculateCostsPerYear() {
+  calculateYearlyPowerConsumptionInKiloWatts() {
     const standbyDeviceConsumption = this.yearlyCostsCalculatorForm.get('standbyDeviceConsumption')?.value;
-    const electricityPrice = this.yearlyCostsCalculatorForm.get('electricityPrice')?.value;
     const standbyHoursPerDay = this.yearlyCostsCalculatorForm.get('standbyHoursPerDay')?.value;
+    const electricityPrice = this.yearlyCostsCalculatorForm.get('electricityPrice')?.value;
 
+    console.log("Consumption", standbyDeviceConsumption);
+    console.log("Standby hours", standbyHoursPerDay);
     // Calculate the product
-    this.costsPerYear = standbyDeviceConsumption * electricityPrice * standbyHoursPerDay;
+    this.yearlyConsumptionInKiloWatts = standbyDeviceConsumption * standbyHoursPerDay * 365 / 1000;
+    return  this.yearlyConsumptionInKiloWatts;
   }
+
+  calculateCostsPerYear() {
+    const electricityPrice = this.yearlyCostsCalculatorForm.get('electricityPrice')?.value;
+
+    console.log("Price", electricityPrice);
+    // Calculate the product
+    this.costsPerYear = this.calculateYearlyPowerConsumptionInKiloWatts() * electricityPrice ;
+  }
+
+
 
   get standbyDeviceConsumptionControl() {
     return this.yearlyCostsCalculatorForm.get('standbyDeviceConsumption');
