@@ -48,3 +48,6 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 
 Once you have successfully installed Node.js and the Angular cli-tools, you can complie the project (and automatically open it in your default-browser) by running:  
 ```ng serve --open```
+
+# Internationalization (i18n)
+* [A Complete Guide To Angular Multilingual Application (i18n)](https://medium.com/angular-in-depth/a-complete-guide-to-angular-multilingual-application-91f431f0f12c)

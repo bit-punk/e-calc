@@ -12,8 +12,9 @@ import {JsonPipe, NgIf} from "@angular/common";
 })
 
 export class YearlyConsumptionCalculatorComponent implements OnInit {
+  private readonly DAYS_PER_YEAR = 365;
   calculatorForm: FormGroup = this.formBuilder.group({
-    daysPerYear: ["365", [Validators.required, Validators.min(0), Validators.max(365)]],
+    daysPerYear: [this.DAYS_PER_YEAR, [Validators.required, Validators.min(0), Validators.max(this.DAYS_PER_YEAR)]],
     wattsPerDay: [null, [Validators.required, Validators.min(0)]],
   });
   consumptionPerYear: number = -1;
