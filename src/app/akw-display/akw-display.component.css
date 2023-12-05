@@ -1,0 +1,16 @@
+.akw-grid {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  grid-gap: 1px;
+}
+
+.akw-icon {
+}
+
+.akw-icon.active {
+  background-image: url(/assets/img/akw_icon.png);
+  background-repeat: no-repeat;
+  width: 30px;
+  height: 30px;
+  border: 1px solid #ccc;
+}

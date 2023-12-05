@@ -5,7 +5,6 @@
 /tmp
 /out-tsc
 /bazel-out
-*.tsbuildinfo
 
 # Logs
 *.log
@@ -13,7 +12,6 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-
 
 # Node
 /node_modules
@@ -28,6 +26,7 @@ yarn-error.log
 *.launch
 .settings/
 *.sublime-workspace
+/e-calc.iml
 
 # Visual Studio Code
 .vscode/*

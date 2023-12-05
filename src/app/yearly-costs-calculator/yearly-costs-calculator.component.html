@@ -23,10 +23,19 @@
         </div>
       </td>
     </tr>
-    <tr *ngIf="yearlyConsumptionInKiloWatts >= 0">
+    <tr *ngIf="yearlyConsumptionInKiloWatts > 0">
       <td>resulting yearly power-consumption</td>
       <td>{{ yearlyConsumptionInKiloWatts }}</td>
       <td><label>[kW / year]]</label></td>
+    </tr>
+    <tr *ngIf="numberOfAkws > 0">
+      <td>number of equivalent AKWs:</td>
+      <td>{{ numberOfAkws }}</td>
+    </tr>
+    <tr>
+      <td colspan="3">
+        <app-akw-display [numberOfAkws]="numberOfAkws"></app-akw-display>
+      </td>
     </tr>
     <tr>
     <td><label for="electricityPrice">Electricity price</label></td>
@@ -54,4 +63,3 @@
 
 <p>Form Status: {{ yearlyCostsCalculatorForm.status }}</p>
 <p>Form Errors: {{ yearlyCostsCalculatorForm.errors }}</p>
-
