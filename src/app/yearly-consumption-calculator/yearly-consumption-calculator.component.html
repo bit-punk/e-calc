@@ -1,8 +1,9 @@
 <form [formGroup]="calculatorForm">
   <table>
     <tr>
-      <td><label for="daysPerYear">Days / Year:</label></td>
+      <td><label for="daysPerYear">Number of days:</label></td>
       <td><input type="number" id="daysPerYear" formControlName="daysPerYear" title="Enter the number of days per year"></td>
+      <td><label for="daysPerYear">[Days / Year]</label></td>
       <td>
         <div *ngIf="daysPerYearControl?.invalid && (daysPerYearControl?.dirty || daysPerYearControl?.touched)">
           <div *ngIf="daysPerYearControl?.hasError('required')">Days / Year is required.</div>
@@ -12,13 +13,13 @@
       </td>
     </tr>
     <tr>
-      <td><label for="kiloWattsPerDay">Consumption per Day:</label></td>
-      <td><input type="number" id="kiloWattsPerDay" formControlName="kiloWattsPerDay" ></td>
-      <td><label for="kiloWattsPerDay">[kW]</label></td>
+      <td><label for="wattsPerDay">Consumption per Day:</label></td>
+      <td><input type="number" id="wattsPerDay" formControlName="wattsPerDay" ></td>
+      <td><label for="wattsPerDay">[W]</label></td>
       <td>
-        <div *ngIf="kiloWattsPerDayControl?.invalid && (kiloWattsPerDayControl?.dirty || kiloWattsPerDayControl?.touched)">
-          <div *ngIf="kiloWattsPerDayControl?.hasError('required')">kiloWatts / Day is required.</div>
-          <div *ngIf="kiloWattsPerDayControl?.hasError('min')">kiloWatts / Day must be greater than or equal to 0.</div>
+        <div *ngIf="wattsPerDayControl?.invalid && (wattsPerDayControl?.dirty || wattsPerDayControl?.touched)">
+          <div *ngIf="wattsPerDayControl?.hasError('required')">Watts / Day is required.</div>
+          <div *ngIf="wattsPerDayControl?.hasError('min')">Watts / Day must be greater than or equal to 0.</div>
         </div>
       </td>
     </tr>

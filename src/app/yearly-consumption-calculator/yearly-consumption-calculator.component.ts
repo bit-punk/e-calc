@@ -14,7 +14,7 @@ import {JsonPipe, NgIf} from "@angular/common";
 export class YearlyConsumptionCalculatorComponent implements OnInit {
   calculatorForm: FormGroup = this.formBuilder.group({
     daysPerYear: ["365", [Validators.required, Validators.min(0), Validators.max(365)]],
-    kiloWattsPerDay: [null, [Validators.required, Validators.min(0)]],
+    wattsPerDay: [null, [Validators.required, Validators.min(0)]],
   });
   consumptionPerYear: number = -1;
 
@@ -31,7 +31,7 @@ export class YearlyConsumptionCalculatorComponent implements OnInit {
 
   calculateConsumptionPerYear() {
     const daysPerYear = this.calculatorForm.get('daysPerYear')?.value;
-    const kiloWattsPerDay = this.calculatorForm.get('kiloWattsPerDay')?.value;
+    const kiloWattsPerDay = this.calculatorForm.get('wattsPerDay')?.value;
 
     // Calculate the product
     this.consumptionPerYear = daysPerYear * kiloWattsPerDay;
@@ -41,7 +41,7 @@ export class YearlyConsumptionCalculatorComponent implements OnInit {
     return this.calculatorForm.get('daysPerYear');
   }
 
-  get kiloWattsPerDayControl() {
-    return this.calculatorForm.get('kiloWattsPerDay');
+  get wattsPerDayControl() {
+    return this.calculatorForm.get('wattsPerDay');
   }
 }
