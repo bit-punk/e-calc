@@ -7,7 +7,7 @@
 .akw-icon {
 }
 
-.akw-icon.active {
+.partially-filled {
   background-image: url(/assets/img/akw_icon.png);
   background-repeat: no-repeat;
   width: 30px;

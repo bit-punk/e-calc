@@ -1,3 +1,4 @@
 <div class="akw-grid">
-  <div *ngFor="let _ of akwArray; let i = index" class="akw-icon" [class.active]="i < numberOfAkws"></div>
+  <div *ngFor="let _ of akwArray; let i = index" class="{{ calculateIconWidthAndCSSName(i).calculatedCssName }}"
+       [class.active]="i < filledIcons" [style.width.px]="calculateIconWidthAndCSSName(i).calculatedWidth"></div>
 </div>
