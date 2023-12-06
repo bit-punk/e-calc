@@ -6,9 +6,9 @@
       <td><label for="daysPerYear">[Days / Year]</label></td>
       <td>
         <div *ngIf="daysPerYearControl?.invalid && (daysPerYearControl?.dirty || daysPerYearControl?.touched)">
-          <div *ngIf="daysPerYearControl?.hasError('required')">Days / Year is required.</div>
-          <div *ngIf="daysPerYearControl?.hasError('min')">Days / Year must be greater than or equal to 0.</div>
-          <div *ngIf="daysPerYearControl?.hasError('max')">Days / Year cannot exceed 365.</div>
+          <div *ngIf="daysPerYearControl?.hasError('required')" class="validation-error">Days / Year is required.</div>
+          <div *ngIf="daysPerYearControl?.hasError('min')" class="validation-error">Days / Year must be greater than or equal to 0.</div>
+          <div *ngIf="daysPerYearControl?.hasError('max')" class="validation-error">Days / Year cannot exceed 365.</div>
         </div>
       </td>
     </tr>
@@ -18,8 +18,8 @@
       <td><label for="wattsPerDay">[W]</label></td>
       <td>
         <div *ngIf="wattsPerDayControl?.invalid && (wattsPerDayControl?.dirty || wattsPerDayControl?.touched)">
-          <div *ngIf="wattsPerDayControl?.hasError('required')">Watts / Day is required.</div>
-          <div *ngIf="wattsPerDayControl?.hasError('min')">Watts / Day must be greater than or equal to 0.</div>
+          <div *ngIf="wattsPerDayControl?.hasError('required')" class="validation-error">Watts / Day is required.</div>
+          <div *ngIf="wattsPerDayControl?.hasError('min')" class="validation-error">Watts / Day must be greater than or equal to 0.</div>
         </div>
       </td>
     </tr>
