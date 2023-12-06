@@ -11,3 +11,19 @@ label {
 .validation-error {
   color: red;
 }
+
+.framed {
+  border: 2px solid black;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.example-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.example-full-width {
+  width: 100%;
+}

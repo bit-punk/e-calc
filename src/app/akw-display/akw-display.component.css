@@ -11,6 +11,7 @@
 .partially-filled {
   background-image: url(/assets/img/akw_icon.png);
   background-repeat: no-repeat;
+  background-color: #cccccc;
   width: 30px;
   height: 30px;
   border: 1px solid #ccc;

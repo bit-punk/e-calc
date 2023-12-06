@@ -3,12 +3,15 @@ import {FormBuilder, FormGroup, ReactiveFormsModule} from '@angular/forms';
 import {Validators} from '@angular/forms';
 import {DecimalPipe, JsonPipe, NgIf} from "@angular/common";
 import {AkwDisplayComponent} from "../akw-display/akw-display.component";
+import {MatFormFieldModule} from "@angular/material/form-field";
+import {MatInputModule} from "@angular/material/input";
+import {MatCardModule} from "@angular/material/card";
 
 @Component({
   standalone: true,
   selector: 'app-calculator',
   templateUrl: './yearly-costs-calculator.component.html',
-  imports: [NgIf, ReactiveFormsModule, JsonPipe, DecimalPipe, AkwDisplayComponent],
+  imports: [NgIf, ReactiveFormsModule, JsonPipe, DecimalPipe, AkwDisplayComponent, MatFormFieldModule, MatInputModule, MatCardModule],
   styleUrls: ['./yearly-costs-calculator.component.css']
 })
 

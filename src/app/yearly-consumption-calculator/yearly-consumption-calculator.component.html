@@ -1,41 +1,38 @@
-<form [formGroup]="calculatorForm">
-  <table>
-    <tr>
-      <td><label for="daysPerYear">Number of days:</label></td>
-      <td><input type="number" id="daysPerYear" formControlName="daysPerYear" title="Enter the number of days per year"></td>
-      <td><label for="daysPerYear">[Days / Year]</label></td>
-      <td>
-        <div *ngIf="daysPerYearControl?.invalid && (daysPerYearControl?.dirty || daysPerYearControl?.touched)">
-          <div *ngIf="daysPerYearControl?.hasError('required')" class="validation-error">Days / Year is required.</div>
-          <div *ngIf="daysPerYearControl?.hasError('min')" class="validation-error">Days / Year must be greater than or equal to 0.</div>
-          <div *ngIf="daysPerYearControl?.hasError('max')" class="validation-error">Days / Year cannot exceed 365.</div>
-        </div>
-      </td>
-    </tr>
-    <tr>
-      <td><label for="wattsPerDay">Consumption per Day:</label></td>
-      <td><input type="number" id="wattsPerDay" formControlName="wattsPerDay" ></td>
-      <td><label for="wattsPerDay">[W]</label></td>
-      <td>
-        <div *ngIf="wattsPerDayControl?.invalid && (wattsPerDayControl?.dirty || wattsPerDayControl?.touched)">
-          <div *ngIf="wattsPerDayControl?.hasError('required')" class="validation-error">Watts / Day is required.</div>
-          <div *ngIf="wattsPerDayControl?.hasError('min')" class="validation-error">Watts / Day must be greater than or equal to 0.</div>
-        </div>
-      </td>
-    </tr>
-    <tr *ngIf="calculatorForm.valid">
-      <td><label>resulting yearly consumption:</label></td>
-      <td>{{ consumptionPerYear }}</td>
-      <td><label>[kW]</label></td>
-    </tr>
-  </table>
+<div class="framed">
+  <h2>Yearly Consumption</h2>
+  <form class="example-form" [formGroup]="calculatorForm">
+    <mat-form-field class="example-full-width">
+      <mat-label>Number of days:</mat-label>
+      <input matInput type="number" id="daysPerYear" formControlName="daysPerYear"
+             title="Enter the number of days per year">
+      <mat-hint>[Days / Year]</mat-hint>
+      <mat-error *ngIf="daysPerYearControl?.hasError('required')">Number of days is <strong>required</strong>
+      </mat-error>
+      <mat-error *ngIf="daysPerYearControl?.hasError('min')">Number of days must be <strong>greater than or equal to
+        0</strong>.
+      </mat-error>
+      <mat-error *ngIf="daysPerYearControl?.hasError('max')">Number of days <strong>cannot exceed 365</strong>.
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <mat-label>Consumption per Day:</mat-label>
+      <input matInput type="number" id="wattsPerDay" formControlName="wattsPerDay">
+      <mat-hint>[W]</mat-hint>
+      <mat-error *ngIf="wattsPerDayControl?.hasError('required')">Consumption per Day is <strong>required</strong>
+      </mat-error>
+      <mat-error *ngIf="wattsPerDayControl?.hasError('min')">Consumption per Day <strong>must be greater than or equal
+        to 0</strong></mat-error>
+    </mat-form-field>
 
-</form>
+    <mat-card *ngIf="calculatorForm.valid">
+      <mat-label>
+        <mat-card-title>resulting yearly consumption</mat-card-title>
+      </mat-label>
+      <mat-card-content>
+        <p>{{ consumptionPerYear }}</p>
+        <mat-hint>[kW / year]</mat-hint>
+      </mat-card-content>
+    </mat-card>
 
-
-<hr>
-
-<p>Form Value: {{ calculatorForm.value | json }}</p>
-
-<p>Form Status: {{ calculatorForm.status }}</p>
-<p>Form Errors: {{ calculatorForm.errors }}</p>
+  </form>
+</div>

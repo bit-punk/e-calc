@@ -1,65 +1,64 @@
-<form [formGroup]="yearlyCostsCalculatorForm">
+<div class="framed">
+  <h2>Yearly Costs</h2>
+  <form class="example-form" [formGroup]="yearlyCostsCalculatorForm">
 
-  <table>
-    <tr>
-      <td><label for="standbyDeviceConsumption">Standby Device consumption per hour:</label></td>
-      <td><input type="number" id="standbyDeviceConsumption" formControlName="standbyDeviceConsumption"></td>
-      <td><label for="standbyDeviceConsumption">[W / hour]</label></td>
-      <td>
-        <div *ngIf="standbyDeviceConsumptionControl?.invalid && (standbyDeviceConsumptionControl?.dirty || standbyDeviceConsumptionControl?.touched)">
-          <div *ngIf="standbyDeviceConsumptionControl?.hasError('required')" class="validation-error">Standby Device consumption is required.</div>
-          <div *ngIf="standbyDeviceConsumptionControl?.hasError('min')" class="validation-error">Standby Device consumption must be greater than or equal to 0.</div>
-        </div>
-      </td>
-    </tr>
-    <tr>
-      <td><label for="standbyHoursPerDay">Standby hours per day</label></td>
-      <td><input type="number" id="standbyHoursPerDay" formControlName="standbyHoursPerDay"></td>
-      <td><label for="standbyHoursPerDay">[h]</label></td>
-      <td>
-        <div *ngIf="standbyHoursPerDayControl?.invalid && (standbyHoursPerDayControl?.dirty || standbyHoursPerDayControl?.touched)">
-          <div *ngIf="standbyHoursPerDayControl?.hasError('required')" class="validation-error">Standby hours per day is required.</div>
-          <div *ngIf="standbyHoursPerDayControl?.hasError('min')" class="validation-error">Standby hours per day must be greater than or equal to 0.</div>
-        </div>
-      </td>
-    </tr>
-    <tr *ngIf="yearlyConsumptionInKiloWatts > 0">
-      <td>resulting yearly power-consumption</td>
-      <td>{{ yearlyConsumptionInKiloWatts }}</td>
-      <td><label>[kW / year]]</label></td>
-    </tr>
-    <tr *ngIf="numberOfAkws > 0">
-      <td>number of equivalent AKWs:</td>
-      <td>{{ numberOfAkws }}</td>
-    </tr>
-    <tr>
-      <td colspan="3">
-        <app-akw-display [numberOfAkws]="numberOfAkws"></app-akw-display>
-      </td>
-    </tr>
-    <tr>
-    <td><label for="electricityPrice">Electricity price</label></td>
-    <td><input type="number" id="electricityPrice" formControlName="electricityPrice"></td>
-    <td><label for="electricityPrice">[€ / kWh]</label></td>
-    <td>
-    <div *ngIf="electricityPriceControl?.invalid && (electricityPriceControl?.dirty || electricityPriceControl?.touched)">
-          <div *ngIf="electricityPriceControl?.hasError('required')" class="validation-error">The electricity price is required.</div>
-          <div *ngIf="electricityPriceControl?.hasError('min')" class="validation-error">The electricity price must be greater than or equal to 0.</div>
-        </div>
-    </td>
-    </tr>
-    <tr *ngIf="yearlyCostsCalculatorForm.valid">
-      <td><label>resulting yearly costs:</label></td>
-      <td>{{ costsPerYear | number:'1.2-2' }}</td>
-      <td><label>[€ / year]</label></td>
-    </tr>
-  </table>
+    <mat-form-field class="example-full-width">
+      <mat-label>Standby Device consumption per hour:</mat-label>
+      <input matInput type="number" id="standbyDeviceConsumption" formControlName="standbyDeviceConsumption"
+             title="Enter the device's power consumption per hour">
+      <mat-hint>[W / hour]</mat-hint>
+      <mat-error *ngIf="standbyDeviceConsumptionControl?.hasError('required')">Standby Device consumption is <strong>required</strong>
+      </mat-error>
+      <mat-error *ngIf="standbyDeviceConsumptionControl?.hasError('min')">Standby Device consumption <strong>must be
+        greater than or equal to 0</strong></mat-error>
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <mat-label>Standby hours per day:</mat-label>
+      <input matInput type="number" id="standbyHoursPerDay" formControlName="standbyDeviceConsumption"
+             title="Enter the number of standby-hours per day">
+      <mat-hint>[h / day]</mat-hint>
+      <mat-error *ngIf="standbyHoursPerDayControl?.hasError('required')">Standby hours per day is
+        <strong>required</strong></mat-error>
+      <mat-error *ngIf="standbyHoursPerDayControl?.hasError('min')">Standby hours per day <strong>must be greater than
+        or equal to 0</strong></mat-error>
+    </mat-form-field>
 
-</form>
+    <mat-card>
+      <mat-label>
+        <mat-card-title>resulting yearly consumption</mat-card-title>
+      </mat-label>
+      <mat-card-content *ngIf="yearlyConsumptionInKiloWatts > 0">
+        <p>{{ yearlyConsumptionInKiloWatts }}</p>
+        <mat-hint>[kW / year]</mat-hint>
+      </mat-card-content>
+      <mat-card-content *ngIf="numberOfAkws > 0">
+        <p>{{ numberOfAkws }}</p>
+        <mat-hint>[kW / year]</mat-hint>
+      </mat-card-content>
+    </mat-card>
 
-<hr>
+    <app-akw-display [numberOfAkws]="numberOfAkws"></app-akw-display>
 
-<p>Form Value: {{ yearlyCostsCalculatorForm.value | json }}</p>
+    <mat-form-field class="example-full-width">
+      <mat-label>Electricity price:</mat-label>
+      <input matInput type="number" id="electricityPrice" formControlName="electricityPrice"
+             title="Enter the price of each kilo-Watt by the hour">
+      <mat-hint>[€ / kWh]</mat-hint>
+      <mat-error *ngIf="electricityPriceControl?.hasError('required')">The electricity price is
+        <strong>required</strong></mat-error>
+      <mat-error *ngIf="electricityPriceControl?.hasError('min')">The electricity price <strong>must be greater than or
+        equal to 0</strong></mat-error>
+    </mat-form-field>
 
-<p>Form Status: {{ yearlyCostsCalculatorForm.status }}</p>
-<p>Form Errors: {{ yearlyCostsCalculatorForm.errors }}</p>
+    <mat-card *ngIf="yearlyCostsCalculatorForm.valid">
+      <mat-label>
+        <mat-card-title>resulting yearly costs:</mat-card-title>
+      </mat-label>
+      <mat-card-content>
+        <p>{{ costsPerYear | number:'1.2-2' }}</p>
+        <mat-hint>[€ / year]</mat-hint>
+      </mat-card-content>
+    </mat-card>
+
+  </form>
+</div>

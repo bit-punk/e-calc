@@ -2,12 +2,14 @@ import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, ReactiveFormsModule} from '@angular/forms';
 import {Validators} from '@angular/forms';
 import {JsonPipe, NgIf} from "@angular/common";
+import {MatInputModule} from "@angular/material/input";
+import {MatCardModule} from "@angular/material/card";
 
 @Component({
   standalone: true,
   selector: 'app-yearly-consumption-calculator',
   templateUrl: './yearly-consumption-calculator.component.html',
-  imports: [NgIf, ReactiveFormsModule, JsonPipe],
+  imports: [NgIf, ReactiveFormsModule, JsonPipe, MatInputModule, MatCardModule],
   styleUrls: ['./yearly-consumption-calculator.component.css']
 })
 

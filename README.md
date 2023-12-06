@@ -40,6 +40,10 @@ Recommended IDEs are:
 * you can verify the successful installation of _ng_ using:  
   ```ng version```
 
+## Installing Angular-Material
+```ng add @angular/material```
+
+
 # Building
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
