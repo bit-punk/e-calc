@@ -5,7 +5,7 @@
       <mat-label>Number of days:</mat-label>
       <input matInput placeholder="e.g. '365" type="number" id="daysPerYear" formControlName="daysPerYear"
              title="Enter the number of days per year">
-      <mat-hint>[Days / Year]</mat-hint>
+      <span matTextSuffix>days / year</span>
       <mat-error *ngIf="daysPerYearControl?.hasError('required')">Number of days is <strong>required</strong>
       </mat-error>
       <mat-error *ngIf="daysPerYearControl?.hasError('min')">Number of days must be <strong>greater than or equal to
@@ -17,7 +17,7 @@
     <mat-form-field class="example-full-width" appearance="outline">
       <mat-label>Consumption per Day:</mat-label>
       <input matInput placeholder="e.g. '12" type="number" id="wattsPerDay" formControlName="wattsPerDay">
-      <mat-hint>[W]</mat-hint>
+      <span matTextSuffix>W / day</span>
       <mat-error *ngIf="wattsPerDayControl?.hasError('required')">Consumption per Day is <strong>required</strong>
       </mat-error>
       <mat-error *ngIf="wattsPerDayControl?.hasError('min')">Consumption per Day <strong>must be greater than or equal
@@ -29,8 +29,7 @@
         <mat-card-subtitle>resulting yearly consumption</mat-card-subtitle>
       </mat-label>
       <mat-card-content>
-        <p><strong>{{ consumptionPerYear }}</strong></p>
-        <mat-hint>[kW / year]</mat-hint>
+        <p><strong>{{ consumptionPerYear }}</strong> kW / year</p>
       </mat-card-content>
     </mat-card>
 

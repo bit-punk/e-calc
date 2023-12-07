@@ -4,9 +4,10 @@
 
     <mat-form-field class="example-full-width" appearance="outline">
       <mat-label>Standby Device consumption per hour:</mat-label>
-      <input matInput placeholder="e.g. '17'" type="number" id="standbyDeviceConsumption" formControlName="standbyDeviceConsumption"
+      <input matInput placeholder="e.g. '17'" type="number" id="standbyDeviceConsumption"
+             formControlName="standbyDeviceConsumption"
              title="Enter the device's power consumption per hour">
-      <mat-hint>[W / hour]</mat-hint>
+      <span matTextSuffix>W / hour</span>
       <mat-error *ngIf="standbyDeviceConsumptionControl?.hasError('required')">Standby Device consumption is <strong>required</strong>
       </mat-error>
       <mat-error *ngIf="standbyDeviceConsumptionControl?.hasError('min')">Standby Device consumption <strong>must be
@@ -16,12 +17,13 @@
       <mat-label>Standby hours per day:</mat-label>
       <input matInput placeholder="e.g. '24'" type="number" id="standbyHoursPerDay" formControlName="standbyHoursPerDay"
              title="Enter the number of standby-hours per day">
-      <mat-hint>[h / day]</mat-hint>
+      <span matTextSuffix>h / day</span>
       <mat-error *ngIf="standbyHoursPerDayControl?.hasError('required')">Standby hours per day is
         <strong>required</strong></mat-error>
       <mat-error *ngIf="standbyHoursPerDayControl?.hasError('min')">Standby hours per day <strong>must be greater than
         or equal to 0</strong></mat-error>
-      <mat-error *ngIf="standbyHoursPerDayControl?.hasError('max')">Standby hours per day <strong>cannot exceed 24</strong></mat-error>
+      <mat-error *ngIf="standbyHoursPerDayControl?.hasError('max')">Standby hours per day <strong>cannot exceed
+        24</strong></mat-error>
     </mat-form-field>
 
     <app-akw-display [numberOfAkws]="numberOfAkws"></app-akw-display>
@@ -30,7 +32,7 @@
       <mat-label>Electricity price:</mat-label>
       <input matInput placeholder="e.g. '0.35'"type="number" id="electricityPrice" formControlName="electricityPrice"
              title="Enter the price of each kilo-Watt by the hour">
-      <mat-hint>[€ / kWh]</mat-hint>
+      <span matTextSuffix>€ / kWh</span>
       <mat-error *ngIf="electricityPriceControl?.hasError('required')">The electricity price is
         <strong>required</strong></mat-error>
       <mat-error *ngIf="electricityPriceControl?.hasError('min')">The electricity price <strong>must be greater than or
@@ -42,8 +44,7 @@
         <mat-card-subtitle>resulting yearly costs:</mat-card-subtitle>
       </mat-label>
       <mat-card-content>
-        <p><strong>{{ costsPerYear | number:'1.2-2' }}</strong></p>
-        <mat-hint>[€ / year]</mat-hint>
+        <p><strong>{{ costsPerYear | number:'1.2-2' }}</strong> € / year</p>
       </mat-card-content>
     </mat-card>
 
