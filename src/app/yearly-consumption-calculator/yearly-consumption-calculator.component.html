@@ -1,9 +1,9 @@
 <div class="framed">
   <h2>Yearly Consumption</h2>
   <form class="example-form" [formGroup]="calculatorForm">
-    <mat-form-field class="example-full-width">
+    <mat-form-field class="example-full-width" appearance="outline">
       <mat-label>Number of days:</mat-label>
-      <input matInput type="number" id="daysPerYear" formControlName="daysPerYear"
+      <input matInput placeholder="e.g. '365" type="number" id="daysPerYear" formControlName="daysPerYear"
              title="Enter the number of days per year">
       <mat-hint>[Days / Year]</mat-hint>
       <mat-error *ngIf="daysPerYearControl?.hasError('required')">Number of days is <strong>required</strong>
@@ -14,9 +14,9 @@
       <mat-error *ngIf="daysPerYearControl?.hasError('max')">Number of days <strong>cannot exceed 365</strong>.
       </mat-error>
     </mat-form-field>
-    <mat-form-field class="example-full-width">
+    <mat-form-field class="example-full-width" appearance="outline">
       <mat-label>Consumption per Day:</mat-label>
-      <input matInput type="number" id="wattsPerDay" formControlName="wattsPerDay">
+      <input matInput placeholder="e.g. '12" type="number" id="wattsPerDay" formControlName="wattsPerDay">
       <mat-hint>[W]</mat-hint>
       <mat-error *ngIf="wattsPerDayControl?.hasError('required')">Consumption per Day is <strong>required</strong>
       </mat-error>
@@ -26,10 +26,10 @@
 
     <mat-card *ngIf="calculatorForm.valid">
       <mat-label>
-        <mat-card-title>resulting yearly consumption</mat-card-title>
+        <mat-card-subtitle>resulting yearly consumption</mat-card-subtitle>
       </mat-label>
       <mat-card-content>
-        <p>{{ consumptionPerYear }}</p>
+        <p><strong>{{ consumptionPerYear }}</strong></p>
         <mat-hint>[kW / year]</mat-hint>
       </mat-card-content>
     </mat-card>

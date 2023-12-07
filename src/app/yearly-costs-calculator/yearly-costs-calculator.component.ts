@@ -16,10 +16,12 @@ import {MatCardModule} from "@angular/material/card";
 })
 
 export class YearlyCostsCalculatorComponent implements OnInit {
+  private readonly HOURS_PER_DAY = 24;
+
   yearlyCostsCalculatorForm: FormGroup = this.formBuilder.group({
     standbyDeviceConsumption: [null, [Validators.required, Validators.min(0)]],
     electricityPrice: [null, [Validators.required, Validators.min(0)]],
-    standbyHoursPerDay: [24, [Validators.required, Validators.min(0)]]
+    standbyHoursPerDay: [this.HOURS_PER_DAY, [Validators.required, Validators.min(0), Validators.max(this.HOURS_PER_DAY)]]
   });
   yearlyConsumptionInKiloWatts: number = -1;
   costsPerYear: number = -1;
