@@ -1,8 +1,5 @@
 <div class="framed">
   <h2>{{ 'YEARLY-CONSUMPTION.TITLE' | translate }}</h2>
-  <select #langSelect (change)="translate.use(langSelect.value)">
-    <option *ngFor="let lang of translate.getLangs()" [value]="lang" [selected]="lang === translate.currentLang">{{ lang }}</option>
-  </select>
 
   <form class="example-form" [formGroup]="calculatorForm">
     <mat-form-field class="example-full-width" appearance="outline">

@@ -8,17 +8,17 @@
         "TITLE": "Geben Sie die Anzahl der Tage pro Jahr ein",
         "SUFFIX": "Tage / Jahr",
         "VALIDATION-ERROR": {
-          "REQUIRED": "Die Anzahl der Tage ist <strong>erforderlich</strong>",
-          "MIN": "Die Anzahl der Tage muss <strong>0 oder mehr sein</strong>.",
-          "MAX": "Die Anzahl der Tage <strong>kann 365 nicht überschreiten</strong>."
+          "REQUIRED": "Die Anzahl der Tage ist erforderlich",
+          "MIN": "Die Anzahl der Tage muss 0 oder mehr sein.",
+          "MAX": "Die Anzahl der Tage kann 365 nicht überschreiten."
         },
         "CONSUMPTION_PER_DAY": {
           "LABEL": "Verbrauch pro Tag:",
           "PLACEHOLDER": "z.B. '12'",
           "SUFFIX": "W / Tag",
           "VALIDATION-ERROR": {
-            "REQUIRED": "Verbrauch pro Tag ist <strong>erforderlich</strong>",
-            "MIN": "Verbrauch pro Tag <strong>muss 0 oder mehr sein</strong>"
+            "REQUIRED": "Verbrauch pro Tag ist erforderlich",
+            "MIN": "Verbrauch pro Tag muss 0 oder mehr sein"
           }
         }
       }
@@ -27,5 +27,45 @@
       "SUB-TITLE:": "resultierender Jahresverbrauch",
       "CONTENT-UNIT": "kW / Jahr"
     }
+  },
+  "YEARLY_COSTS": {
+    "TITLE": "Jährliche Kosten",
+    "FORM": {
+      "STANDBY_DEVICE_CONSUMPTION": {
+        "LABEL": "Standby-Geräteverbrauch pro Stunde:",
+        "PLACEHOLDER": "z.B. '17'",
+        "TITLE": "Geben Sie den Leistungsverbrauch des Geräts pro Stunde ein",
+        "SUFFIX": "W / Stunde",
+        "VALIDATION-ERROR": {
+          "REQUIRED": "Standby-Geräteverbrauch ist erforderlich",
+          "MIN": "Standby-Geräteverbrauch muss größer oder gleich 0 sein"
+        }
+      },
+      "STANDBY_HOURS_PER_DAY": {
+        "LABEL": "Standby-Stunden pro Tag:",
+        "PLACEHOLDER": "z.B. '24'",
+        "TITLE": "Geben Sie die Anzahl der Standby-Stunden pro Tag ein",
+        "SUFFIX": "h / Tag",
+        "VALIDATION-ERROR": {
+          "REQUIRED": "Standby-Stunden pro Tag sind erforderlich",
+          "MIN": "Standby-Stunden pro Tag müssen größer oder gleich 0 sein",
+          "MAX": "Standby-Stunden pro Tag dürfen 24 nicht überschreiten"
+        }
+      },
+      "ELECTRICITY_PRICE": {
+        "LABEL": "Strompreis:",
+        "PLACEHOLDER": "z.B. '0.35'",
+        "TITLE": "Geben Sie den Preis für jede Kilowattstunde ein",
+        "SUFFIX": "€ / kWh",
+        "VALIDATION-ERROR": {
+          "REQUIRED": "Der Strompreis ist erforderlich",
+          "MIN": "Der Strompreis muss größer oder gleich 0 sein"
+        }
+      }
+    }
+  },
+  "CARD": {
+    "SUB-TITLE": "resultierende jährliche Kosten:",
+    "CONTENT-UNIT": "€ / Jahr"
   }
 }

@@ -6,12 +6,13 @@ import {AkwDisplayComponent} from "../akw-display/akw-display.component";
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatInputModule} from "@angular/material/input";
 import {MatCardModule} from "@angular/material/card";
+import {TranslateModule} from "@ngx-translate/core";
 
 @Component({
   standalone: true,
   selector: 'app-calculator',
   templateUrl: './yearly-costs-calculator.component.html',
-  imports: [NgIf, ReactiveFormsModule, JsonPipe, DecimalPipe, AkwDisplayComponent, MatFormFieldModule, MatInputModule, MatCardModule],
+  imports: [NgIf, ReactiveFormsModule, JsonPipe, DecimalPipe, AkwDisplayComponent, MatFormFieldModule, MatInputModule, MatCardModule, TranslateModule],
   styleUrls: ['./yearly-costs-calculator.component.css']
 })
 
@@ -29,7 +30,6 @@ export class YearlyCostsCalculatorComponent implements OnInit {
 
   constructor(private formBuilder: FormBuilder) {
   }
-
 
   ngOnInit(): void {
     // Subscribe to form value changes
@@ -72,5 +72,4 @@ export class YearlyCostsCalculatorComponent implements OnInit {
   get standbyHoursPerDayControl() {
     return this.yearlyCostsCalculatorForm.get('standbyHoursPerDay');
   }
-
 }

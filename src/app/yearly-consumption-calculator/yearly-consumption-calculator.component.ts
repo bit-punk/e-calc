@@ -4,7 +4,7 @@ import {Validators} from '@angular/forms';
 import {JsonPipe, NgForOf, NgIf} from "@angular/common";
 import {MatInputModule} from "@angular/material/input";
 import {MatCardModule} from "@angular/material/card";
-import {TranslateModule, TranslateService} from "@ngx-translate/core";
+import {TranslateModule} from "@ngx-translate/core";
 
 @Component({
   standalone: true,
@@ -22,14 +22,8 @@ export class YearlyConsumptionCalculatorComponent implements OnInit {
   });
   consumptionPerYear: number = -1;
 
-  constructor(private formBuilder: FormBuilder, public translate: TranslateService) {
-    translate.addLangs(['en', 'de']);
-    translate.setDefaultLang('en');
-
-    const browserLang = translate.getBrowserLang();
-    translate.use(browserLang?.match(/en|de/) ? browserLang : 'en');
+  constructor(private formBuilder: FormBuilder) {
   }
-
 
   ngOnInit(): void {
     // Subscribe to form value changes
