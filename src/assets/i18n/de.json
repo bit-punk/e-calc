@@ -62,10 +62,10 @@
           "MIN": "Der Strompreis muss größer oder gleich 0 sein"
         }
       }
+    },
+    "CARD": {
+      "SUB-TITLE": "resultierende jährliche Kosten:",
+      "CONTENT-UNIT": "€ / Jahr"
     }
-  },
-  "CARD": {
-    "SUB-TITLE": "resultierende jährliche Kosten:",
-    "CONTENT-UNIT": "€ / Jahr"
   }
 }

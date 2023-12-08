@@ -62,10 +62,10 @@
           "MIN": "The electricity price must be greater than or equal to 0"
         }
       }
+    },
+    "CARD": {
+      "SUB-TITLE": "resulting yearly costs:",
+      "CONTENT-UNIT": "€ / year"
     }
-  },
-  "CARD": {
-    "SUB-TITLE:": "resulting yearly costs:",
-    "CONTENT-UNIT": "€ / year"
   }
 }

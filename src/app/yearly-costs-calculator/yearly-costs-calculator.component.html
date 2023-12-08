@@ -37,10 +37,10 @@
 
     <mat-card *ngIf="yearlyCostsCalculatorForm.valid" appearance="outlined">
       <mat-label>
-        <mat-card-subtitle>{{ 'YEARLY_COSTS.FORM.ELECTRICITY_PRICE.CARD.SUB-TITLE:' | translate }}</mat-card-subtitle>
+        <mat-card-subtitle>{{ 'YEARLY_COSTS.CARD.SUB-TITLE' | translate }}</mat-card-subtitle>
       </mat-label>
       <mat-card-content>
-        <p><strong>{{ costsPerYear | number:'1.2-2' }}</strong> {{ 'YEARLY_COSTS.FORM.ELECTRICITY_PRICE.CARD.CONTENT-UNIT' | translate }}</p>
+        <p><strong>{{ costsPerYear | number:'1.2-2' }}</strong> {{ 'YEARLY_COSTS.CARD.CONTENT-UNIT' | translate }}</p>
       </mat-card-content>
     </mat-card>
 
