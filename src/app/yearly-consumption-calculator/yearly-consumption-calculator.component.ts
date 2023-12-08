@@ -1,15 +1,16 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, ReactiveFormsModule} from '@angular/forms';
 import {Validators} from '@angular/forms';
-import {JsonPipe, NgIf} from "@angular/common";
+import {JsonPipe, NgForOf, NgIf} from "@angular/common";
 import {MatInputModule} from "@angular/material/input";
 import {MatCardModule} from "@angular/material/card";
+import {TranslateModule, TranslateService} from "@ngx-translate/core";
 
 @Component({
   standalone: true,
   selector: 'app-yearly-consumption-calculator',
   templateUrl: './yearly-consumption-calculator.component.html',
-  imports: [NgIf, ReactiveFormsModule, JsonPipe, MatInputModule, MatCardModule],
+  imports: [NgIf, ReactiveFormsModule, JsonPipe, MatInputModule, MatCardModule, TranslateModule, NgForOf],
   styleUrls: ['./yearly-consumption-calculator.component.css']
 })
 
@@ -21,7 +22,12 @@ export class YearlyConsumptionCalculatorComponent implements OnInit {
   });
   consumptionPerYear: number = -1;
 
-  constructor(private formBuilder: FormBuilder) {
+  constructor(private formBuilder: FormBuilder, public translate: TranslateService) {
+    translate.addLangs(['en', 'de']);
+    translate.setDefaultLang('en');
+
+    const browserLang = translate.getBrowserLang();
+    translate.use(browserLang?.match(/en|de/) ? browserLang : 'en');
   }
 
 

@@ -54,4 +54,6 @@ Once you have successfully installed Node.js and the Angular cli-tools, you can 
 ```ng serve --open```
 
 # Internationalization (i18n)
-* [A Complete Guide To Angular Multilingual Application (i18n)](https://medium.com/angular-in-depth/a-complete-guide-to-angular-multilingual-application-91f431f0f12c)
+* Installation of ngx-translate-packages:   __
+  ```npm install @ngx-translate/core @ngx-translate/http-loader --save```
+* [Support for Angular v17](https://github.com/ngx-translate/core/issues/1460)

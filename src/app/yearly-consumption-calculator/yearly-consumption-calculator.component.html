@@ -1,35 +1,34 @@
 <div class="framed">
-  <h2>Yearly Consumption</h2>
+  <h2>{{ 'YEARLY-CONSUMPTION.TITLE' | translate }}</h2>
+  <select #langSelect (change)="translate.use(langSelect.value)">
+    <option *ngFor="let lang of translate.getLangs()" [value]="lang" [selected]="lang === translate.currentLang">{{ lang }}</option>
+  </select>
+
   <form class="example-form" [formGroup]="calculatorForm">
     <mat-form-field class="example-full-width" appearance="outline">
-      <mat-label>Number of days:</mat-label>
-      <input matInput placeholder="e.g. '365" type="number" id="daysPerYear" formControlName="daysPerYear"
-             title="Enter the number of days per year">
-      <span matTextSuffix>days / year</span>
-      <mat-error *ngIf="daysPerYearControl?.hasError('required')">Number of days is <strong>required</strong>
-      </mat-error>
-      <mat-error *ngIf="daysPerYearControl?.hasError('min')">Number of days must be <strong>greater than or equal to
-        0</strong>.
-      </mat-error>
-      <mat-error *ngIf="daysPerYearControl?.hasError('max')">Number of days <strong>cannot exceed 365</strong>.
-      </mat-error>
+      <mat-label>{{ 'YEARLY-CONSUMPTION.FORM.NUMBER_OF_DAYS.LABEL' | translate }}</mat-label>
+      <input matInput placeholder="{{ 'YEARLY-CONSUMPTION.FORM.NUMBER_OF_DAYS.PLACEHOLDER' | translate }}"
+             type="number" id="daysPerYear" formControlName="daysPerYear"
+             title="{{ 'YEARLY-CONSUMPTION.FORM.NUMBER_OF_DAYS.TITLE' | translate }}">
+      <span matTextSuffix>{{ 'YEARLY-CONSUMPTION.FORM.NUMBER_OF_DAYS.SUFFIX' | translate }}</span>
+      <mat-error *ngIf="daysPerYearControl?.hasError('required')">{{ 'YEARLY-CONSUMPTION.FORM.NUMBER_OF_DAYS.VALIDATION-ERROR.REQUIRED' | translate }}</mat-error>
+      <mat-error *ngIf="daysPerYearControl?.hasError('min')">{{ 'YEARLY-CONSUMPTION.FORM.NUMBER_OF_DAYS.VALIDATION-ERROR.MIN' | translate }}</mat-error>
+      <mat-error *ngIf="daysPerYearControl?.hasError('max')">{{ 'YEARLY-CONSUMPTION.FORM.NUMBER_OF_DAYS.VALIDATION-ERROR.MAX' | translate }}</mat-error>
     </mat-form-field>
     <mat-form-field class="example-full-width" appearance="outline">
-      <mat-label>Consumption per Day:</mat-label>
-      <input matInput placeholder="e.g. '12" type="number" id="wattsPerDay" formControlName="wattsPerDay">
-      <span matTextSuffix>W / day</span>
-      <mat-error *ngIf="wattsPerDayControl?.hasError('required')">Consumption per Day is <strong>required</strong>
-      </mat-error>
-      <mat-error *ngIf="wattsPerDayControl?.hasError('min')">Consumption per Day <strong>must be greater than or equal
-        to 0</strong></mat-error>
+      <mat-label>{{ 'YEARLY-CONSUMPTION.FORM.NUMBER_OF_DAYS.CONSUMPTION_PER_DAY.LABEL' | translate }}</mat-label>
+      <input matInput placeholder="{{ 'YEARLY-CONSUMPTION.FORM.NUMBER_OF_DAYS.CONSUMPTION_PER_DAY.PLACEHOLDER' | translate }}" type="number" id="wattsPerDay" formControlName="wattsPerDay">
+      <span matTextSuffix>{{ 'YEARLY-CONSUMPTION.FORM.NUMBER_OF_DAYS.CONSUMPTION_PER_DAY.SUFFIX' | translate }}</span>
+      <mat-error *ngIf="wattsPerDayControl?.hasError('required')">{{ 'YEARLY-CONSUMPTION.FORM.NUMBER_OF_DAYS.CONSUMPTION_PER_DAY.VALIDATION-ERROR.REQUIRED' | translate }}</mat-error>
+      <mat-error *ngIf="wattsPerDayControl?.hasError('min')">{{ 'YEARLY-CONSUMPTION.FORM.NUMBER_OF_DAYS.CONSUMPTION_PER_DAY.VALIDATION-ERROR.MIN' | translate }}</mat-error>
     </mat-form-field>
 
     <mat-card *ngIf="calculatorForm.valid" appearance="outlined">
       <mat-label>
-        <mat-card-subtitle>resulting yearly consumption</mat-card-subtitle>
+        <mat-card-subtitle>{{ 'YEARLY-CONSUMPTION.CARD.SUB-TITLE:' | translate }}</mat-card-subtitle>
       </mat-label>
       <mat-card-content>
-        <p><strong>{{ consumptionPerYear }}</strong> kW / year</p>
+        <p><strong>{{ consumptionPerYear }}</strong> {{ 'YEARLY-CONSUMPTION.CARD.CONTENT-UNIT' | translate }}</p>
       </mat-card-content>
     </mat-card>
 
