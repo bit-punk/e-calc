@@ -37,8 +37,6 @@ export class AkwDisplayComponent {
     let calculatedWidth: number = (value < 1 && value > 0 ) ? (value % 1) * MAX_CELL_WIDTH : MAX_CELL_WIDTH;
     let calculatedCssName: string = (value > 0 ) ? FILLED_CELL_CSS : EMPTY_CELL_CSS;
 
-    console.log("index: ", index, "Width: ", calculatedWidth, "CSS: ", calculatedCssName);
-
     return {calculatedWidth, calculatedCssName};
   }
 }

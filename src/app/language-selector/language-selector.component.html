@@ -1,0 +1,5 @@
+<mat-select #langSelect (selectionChange)="onChangeLang(langSelect.value)" ngDefaultControl>
+  <mat-option *ngFor="let lang of translateService.getLangs()" [value]="lang" >
+    <mat-icon svgIcon="{{ lang }}"/> {{ lang }}
+  </mat-option>
+</mat-select>
