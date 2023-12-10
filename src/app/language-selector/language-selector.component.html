@@ -1,5 +1,5 @@
 <mat-select #langSelect (valueChange)="onChangeLang($event)" [(value)]="currentLang">
-  <mat-option *ngFor="let lang of supportedLangs" [value]="lang" >
+  <mat-option *ngFor="let lang of supportedLanguages" [value]="lang" >
     <mat-icon [svgIcon]="lang"></mat-icon> {{ lang }}
   </mat-option>
 </mat-select>

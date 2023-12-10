@@ -16,34 +16,25 @@ import {DomSanitizer} from "@angular/platform-browser";
 })
 export class LanguageSelectorComponent implements OnInit {
   currentLang: string = "";      // Language currently in use
-  supportedLangs: string[] = []; // Languages supported by your application
+  supportedLanguages: string[] = []; // Languages supported by your application
+  private locales: string[] = ['en', 'de'];
+  private iconBaseDir = "../assets/img/";
 
-  constructor(public translateService: TranslateService, private matIconRegistry: MatIconRegistry, private domSanitizer: DomSanitizer) {
-
-    const locales: string[] = ['en', 'de'];
-
-    translateService.addLangs(locales);
-    translateService.setDefaultLang('en');
-
-    const browserLang = translateService.getBrowserLang();
-    translateService.use(browserLang?.match(/en|de/) ? browserLang : 'en');
-
+  constructor(
+    public translateService: TranslateService,
+    private matIconRegistry: MatIconRegistry,
+    private domSanitizer: DomSanitizer
+  ) {
+    this.setupTranslationService();
     // add icons as trusted assets for each locale
-    locales.forEach((currentLocale) => {
-      this.addTrustedResource(currentLocale);
-    });
+    this.locales.forEach((locale) => this.addTrustedIconSource(locale));
   }
 
   ngOnInit() {
     // Get the current language from the service
     this.currentLang = this.translateService.currentLang;
     // Get the list of supported languages from the service
-    this.supportedLangs = this.translateService.getLangs();
-  }
-
-  private addTrustedResource(name: string) {
-    const iconBaseDir = "../assets/img/";
-    this.matIconRegistry.addSvgIcon(name, this.domSanitizer.bypassSecurityTrustResourceUrl(iconBaseDir + name + ".svg"));
+    this.supportedLanguages = this.translateService.getLangs();
   }
 
   onChangeLang(lang: string) {
@@ -52,4 +43,18 @@ export class LanguageSelectorComponent implements OnInit {
     this.translateService.use(lang);
   }
 
+  private setupTranslationService() {
+    this.translateService.addLangs(this.locales);
+    this.translateService.setDefaultLang('en');
+
+    const browserLang = this.translateService.getBrowserLang();
+    this.translateService.use(browserLang?.match(/en|de/) ? browserLang : 'en');
+  }
+
+  private addTrustedIconSource(name: string) {
+    const iconURL = `${this.iconBaseDir}${name}.svg`;
+    const sanitizedURL = this.domSanitizer.bypassSecurityTrustResourceUrl(iconURL);
+
+    this.matIconRegistry.addSvgIcon(name, sanitizedURL);
+  }
 }
