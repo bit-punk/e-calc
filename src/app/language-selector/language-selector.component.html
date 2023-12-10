@@ -1,5 +1,6 @@
-<mat-select #langSelect (selectionChange)="onChangeLang(langSelect.value)" ngDefaultControl>
-  <mat-option *ngFor="let lang of translateService.getLangs()" [value]="lang" >
-    <mat-icon svgIcon="{{ lang }}"/> {{ lang }}
+<mat-select #langSelect (valueChange)="onChangeLang($event)" [(value)]="currentLang">
+  <mat-option *ngFor="let lang of supportedLangs" [value]="lang" >
+    <mat-icon [svgIcon]="lang"></mat-icon> {{ lang }}
   </mat-option>
 </mat-select>
+<mat-icon matSuffix [svgIcon]="currentLang"></mat-icon>

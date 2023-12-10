@@ -11,7 +11,6 @@ import {DecimalPipe, JsonPipe, NgForOf, NgIf, NgOptimizedImage} from "@angular/c
 })
 export class AkwDisplayComponent {
   @Input() set numberOfAkws(value: number) {
-
     this.totalNumberOfAkws = value;
   }
 

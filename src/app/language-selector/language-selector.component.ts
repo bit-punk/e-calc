@@ -1,20 +1,22 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FormsModule} from "@angular/forms";
 import {MatIconModule, MatIconRegistry} from "@angular/material/icon";
 import {MatOptionModule} from "@angular/material/core";
 import {MatSelectModule} from "@angular/material/select";
 import {NgForOf} from "@angular/common";
-import {TranslateService} from "@ngx-translate/core";
+import {TranslateModule, TranslateService} from "@ngx-translate/core";
 import {DomSanitizer} from "@angular/platform-browser";
 
 @Component({
   selector: 'app-language-selector',
   standalone: true,
-  imports: [FormsModule, MatIconModule, MatOptionModule, MatSelectModule, NgForOf],
+  imports: [FormsModule, MatIconModule, MatOptionModule, MatSelectModule, NgForOf, TranslateModule],
   templateUrl: './language-selector.component.html',
   styleUrl: './language-selector.component.css'
 })
-export class LanguageSelectorComponent {
+export class LanguageSelectorComponent implements OnInit {
+  currentLang: string = "";      // Language currently in use
+  supportedLangs: string[] = []; // Languages supported by your application
 
   constructor(public translateService: TranslateService, private matIconRegistry: MatIconRegistry, private domSanitizer: DomSanitizer) {
 
@@ -32,12 +34,21 @@ export class LanguageSelectorComponent {
     });
   }
 
+  ngOnInit() {
+    // Get the current language from the service
+    this.currentLang = this.translateService.currentLang;
+    // Get the list of supported languages from the service
+    this.supportedLangs = this.translateService.getLangs();
+  }
+
   private addTrustedResource(name: string) {
-    this.matIconRegistry.addSvgIcon(name, this.domSanitizer.bypassSecurityTrustResourceUrl("../assets/img/" + name + ".svg"));
+    const iconBaseDir = "../assets/img/";
+    this.matIconRegistry.addSvgIcon(name, this.domSanitizer.bypassSecurityTrustResourceUrl(iconBaseDir + name + ".svg"));
   }
 
   onChangeLang(lang: string) {
     console.log("Selected language: ", lang);
+    this.currentLang = lang;
     this.translateService.use(lang);
   }
 
