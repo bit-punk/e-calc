@@ -1,6 +1,6 @@
 {
   "YEARLY-CONSUMPTION": {
-    "TITLE": "Jahresverbrauch",
+    "TITLE": "Jahresverbrauch [kWh / Jahr]",
     "FORM": {
       "NUMBER_OF_DAYS": {
         "LABEL": "Anzahl der Tage:",
@@ -15,7 +15,7 @@
         "CONSUMPTION_PER_DAY": {
           "LABEL": "Verbrauch pro Tag:",
           "PLACEHOLDER": "z.B. '12'",
-          "SUFFIX": "W / Tag",
+          "SUFFIX": "kWh / Tag",
           "VALIDATION-ERROR": {
             "REQUIRED": "Verbrauch pro Tag ist erforderlich",
             "MIN": "Verbrauch pro Tag muss 0 oder mehr sein"
@@ -25,7 +25,7 @@
     },
     "CARD": {
       "SUB-TITLE:": "resultierender Jahresverbrauch",
-      "CONTENT-UNIT": "kW / Jahr"
+      "CONTENT-UNIT": "kWh / Jahr"
     }
   },
   "YEARLY_COSTS": {
