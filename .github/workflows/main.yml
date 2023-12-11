@@ -12,16 +12,22 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout Repository
-      uses: actions/checkout@v2
+      - name: Checkout Repository
+        uses: actions/checkout@v2
 
-    - name: Set up Node.js
-      uses: actions/setup-node@v4
-      with:
-        node-version: 18
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
 
-    - name: Install Dependencies
-      run: npm install
+      - name: Install Dependencies
+        run: npm install
 
-    - name: Build Angular App
-      run: npm run build
+      - name: Build Angular App
+        run: npm run build
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: e-calc
+          path: e-calc.zip
