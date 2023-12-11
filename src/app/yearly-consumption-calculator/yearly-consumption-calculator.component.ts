@@ -11,7 +11,7 @@ import {TranslateModule} from "@ngx-translate/core";
   selector: 'app-yearly-consumption-calculator',
   templateUrl: './yearly-consumption-calculator.component.html',
   imports: [NgIf, ReactiveFormsModule, JsonPipe, MatInputModule, MatCardModule, TranslateModule, NgForOf],
-  styleUrls: ['./yearly-consumption-calculator.component.css']
+  styleUrls: ['../app.component.css','./yearly-consumption-calculator.component.css']
 })
 
 export class YearlyConsumptionCalculatorComponent implements OnInit {

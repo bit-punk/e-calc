@@ -1,6 +1,7 @@
 {
   "YEARLY-CONSUMPTION": {
-    "TITLE": "Jahresverbrauch [kWh / Jahr]",
+    "TITLE": "Jahresverbrauch",
+    "SUBTITLE": "[kWh / Jahr]",
     "FORM": {
       "NUMBER_OF_DAYS": {
         "LABEL": "Anzahl der Tage:",
@@ -30,6 +31,7 @@
   },
   "YEARLY_COSTS": {
     "TITLE": "Jährliche Kosten",
+    "SUBTITLE": "[€ / Jahr]",
     "FORM": {
       "STANDBY_DEVICE_CONSUMPTION": {
         "LABEL": "Standby-Geräteverbrauch pro Stunde:",

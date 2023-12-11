@@ -13,7 +13,7 @@ import {TranslateModule} from "@ngx-translate/core";
   selector: 'app-calculator',
   templateUrl: './yearly-costs-calculator.component.html',
   imports: [NgIf, ReactiveFormsModule, JsonPipe, DecimalPipe, AkwDisplayComponent, MatFormFieldModule, MatInputModule, MatCardModule, TranslateModule],
-  styleUrls: ['./yearly-costs-calculator.component.css']
+  styleUrls: ['../app.component.css', './yearly-costs-calculator.component.css']
 })
 
 export class YearlyCostsCalculatorComponent implements OnInit {
