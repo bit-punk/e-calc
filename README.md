@@ -57,3 +57,9 @@ Once you have successfully installed Node.js and the Angular cli-tools, you can 
 * Installation of ngx-translate-packages:   __
   ```npm install @ngx-translate/core @ngx-translate/http-loader --save```
 * [Support for Angular v17](https://github.com/ngx-translate/core/issues/1460)
+
+# GitHub Actions
+
+## GitHub Pages
+* [How to deploy an angular app on GitHub Pages using GitHub Actions](https://frontendroom.com/how-to-deploy-angular-app-on-github-pages-using-github-actions/)
+* [Easy Steps to Host an Angular App in GitHub Pages](https://www.syncfusion.com/blogs/post/host-angular-app-in-github-pages.aspx)
