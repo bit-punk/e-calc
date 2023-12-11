@@ -24,7 +24,7 @@
       <mat-error *ngIf="standbyHoursPerDayControl?.hasError('max')">{{ 'YEARLY_COSTS.FORM.STANDBY_HOURS_PER_DAY.VALIDATION-ERROR.MAX' | translate }}</mat-error>
     </mat-form-field>
 
-    <app-akw-display [numberOfAkws]="numberOfAkws"></app-akw-display>
+    <app-akw-display [kiloWattHoursPerYear]="consumptionInKiloWattsHoursPerYear"></app-akw-display>
 
     <mat-form-field class="example-full-width" appearance="outline">
       <mat-label>{{ 'YEARLY_COSTS.FORM.ELECTRICITY_PRICE.LABEL' | translate }}</mat-label>

@@ -24,9 +24,8 @@ export class YearlyCostsCalculatorComponent implements OnInit {
     electricityPrice: [null, [Validators.required, Validators.min(0)]],
     standbyHoursPerDay: [this.HOURS_PER_DAY, [Validators.required, Validators.min(0), Validators.max(this.HOURS_PER_DAY)]]
   });
-  yearlyConsumptionInKiloWatts: number = -1;
+  consumptionInKiloWattsHoursPerYear: number = -1;
   costsPerYear: number = -1;
-  numberOfAkws: number = -1;
 
   constructor(private formBuilder: FormBuilder) {
   }
@@ -44,16 +43,8 @@ export class YearlyCostsCalculatorComponent implements OnInit {
     console.log("Consumption", standbyDeviceConsumption);
     console.log("Standby hours", standbyHoursPerDay);
     // Calculate the product
-    this.yearlyConsumptionInKiloWatts = standbyDeviceConsumption * standbyHoursPerDay * 365 / 1000;
-    this.calculateNumberOfAKWs(this.yearlyConsumptionInKiloWatts);
-    return  this.yearlyConsumptionInKiloWatts;
-  }
-
-  calculateNumberOfAKWs(yearlyConsumptionInKiloWatts:number) {
-    const averageAKWPower = 1440 * 1000000;
-    const numberOfHouseholds = 40680000;
-    this.numberOfAkws = yearlyConsumptionInKiloWatts * numberOfHouseholds / averageAKWPower;
-    console.debug("Number of AKWs: ", this.numberOfAkws)
+    this.consumptionInKiloWattsHoursPerYear = standbyDeviceConsumption * standbyHoursPerDay * 365 / 1000;
+    return  this.consumptionInKiloWattsHoursPerYear;
   }
 
   calculateCostsPerYear() {

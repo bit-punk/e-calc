@@ -10,13 +10,15 @@ import {DecimalPipe, JsonPipe, NgForOf, NgIf, NgOptimizedImage} from "@angular/c
   styleUrls: ['./akw-display.component.css']
 })
 export class AkwDisplayComponent {
-  @Input() set numberOfAkws(value: number) {
-    this.totalNumberOfAkws = value;
+  @Input() set kiloWattHoursPerYear(kiloWattHoursPerYear: number) {
+    this.totalKiloWattHoursPerYear = kiloWattHoursPerYear;
+    this.calculateNumberOfAKWs(kiloWattHoursPerYear)
   }
 
   // Create an array with 100 elements for the 10x10 grid
   akwArray = new Array(100).fill(0);
-  totalNumberOfAkws: number = 0;
+  totalKiloWattHoursPerYear: number = 0;
+  totalNumberOfAKWs: number = 0;
   filledIcons: number = 0;
 
   /**
@@ -31,11 +33,18 @@ export class AkwDisplayComponent {
     const MAX_CELL_WIDTH = 30;
     const EMPTY_CELL_CSS = "akw-icon";
     const FILLED_CELL_CSS = "partially-filled";
-    const value = this.totalNumberOfAkws - index;
+    const value = this.totalNumberOfAKWs - index;
 
-    let calculatedWidth: number = (value < 1 && value > 0 ) ? (value % 1) * MAX_CELL_WIDTH : MAX_CELL_WIDTH;
-    let calculatedCssName: string = (value > 0 ) ? FILLED_CELL_CSS : EMPTY_CELL_CSS;
+    let calculatedWidth: number = (value < 1 && value > 0) ? (value % 1) * MAX_CELL_WIDTH : MAX_CELL_WIDTH;
+    let calculatedCssName: string = (value > 0) ? FILLED_CELL_CSS : EMPTY_CELL_CSS;
 
     return {calculatedWidth, calculatedCssName};
+  }
+
+  calculateNumberOfAKWs(yearlyConsumptionInKiloWatts: number) {
+    const averageAKWPower = 1440 * 1000000;
+    const numberOfHouseholds = 40680000;
+    this.totalNumberOfAKWs = yearlyConsumptionInKiloWatts * numberOfHouseholds / averageAKWPower;
+    console.debug("Number of AKWs: ", this.totalKiloWattHoursPerYear)
   }
 }
