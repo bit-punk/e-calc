@@ -26,8 +26,11 @@ jobs:
       - name: Build Angular App
         run: npm run build
 
+      - name: Create ZIP-archive
+        run: zip -r e-calc.zip ./dist/e-calc/
+
       - name: Upload artifacts
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: e-calc
           path: e-calc.zip
