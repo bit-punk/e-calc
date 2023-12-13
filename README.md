@@ -2,6 +2,12 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.0.5.
 
+It provides a simple form for calculating the electric-power consumption of devices in standby-mode:
+* Ability to calculate power consumption of devices in standby-mode
+* Calculates the yearly costs of electric power consumption of devices in standby
+* Uses internationalization (i18n) for improving user interaction
+* GitHub Actions are incorporated for build-automation
+
 ![](./pictures/e-calc.png)
 
 ## Development server
@@ -17,6 +23,7 @@ Run `ng generate component component-name` to generate a new component. You can 
 # Build-Environment-Setup
 
 ## IDE
+
 To build the project or use gitversioning it is recommended that you run the commands in a bash-shell window.
 
 Recommended IDEs are:
@@ -54,12 +61,20 @@ Once you have successfully installed Node.js and the Angular cli-tools, you can 
 ```ng serve --open```
 
 # Internationalization (i18n)
-* Installation of ngx-translate-packages:   __
+
+* Installation of ngx-translate-packages:  
   ```npm install @ngx-translate/core @ngx-translate/http-loader --save```
 * [Support for Angular v17](https://github.com/ngx-translate/core/issues/1460)
 
 # GitHub Actions
 
 ## GitHub Pages
+
 * [How to deploy an angular app on GitHub Pages using GitHub Actions](https://frontendroom.com/how-to-deploy-angular-app-on-github-pages-using-github-actions/)
 * [Easy Steps to Host an Angular App in GitHub Pages](https://www.syncfusion.com/blogs/post/host-angular-app-in-github-pages.aspx)
+
+# GitFlow
+
+The versioning schema-used for this project is _git-flow_:
+
+* [git-flow cheatsheet](https://danielkummer.github.io/git-flow-cheatsheet/)
