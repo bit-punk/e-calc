@@ -35,7 +35,7 @@ jobs:
 
       # build Angular-app
       - name: Build Angular App
-        run: npx ng build --base-href ./${{ env.APP_NAME }}/ --deploy-url=https://bit-punk.github.io/e-calc/
+        run: npx ng build
 
       # create ZIP-archive from build-artifacts
       - name: Create ZIP-archive
