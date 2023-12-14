@@ -1,6 +1,8 @@
 # .github/workflows/build.yml
 
 name: Build Angular App
+env:
+  APP_NAME: e-calc
 
 on:
   push:
@@ -22,28 +24,33 @@ jobs:
         with:
           node-version: 18
 
+      # Install dependencies
+      - name: Install npm packages
+        run: |
+          npm ci
+
       # install required dependencies
       - name: Install Dependencies
         run: npm install
 
       # build Angular-app
       - name: Build Angular App
-        run: ng build --base-href /e-calc/
+        run: npx ng build --base-href /${{ env.APP_NAME }}/
 
       # create ZIP-archive from build-artifacts
       - name: Create ZIP-archive
-        run: zip -r e-calc.zip ./dist/e-calc/
+        run: zip -r ${{ env.APP_NAME }}.zip ./dist/${{ env.APP_NAME }}/
 
       # upload ZIP-archive
       - name: Upload artifacts
         uses: actions/upload-artifact@v3
         with:
-          name: e-calc
-          path: e-calc.zip
+          name: ${{ env.APP_NAME }}
+          path: ${{ env.APP_NAME }}.zip
 
       # Now that the app is built, use the actions/gh-pages action to deploy it to github-pages
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist/e-calc/browser/
+          publish_dir: ./dist/${{ env.APP_NAME }}/browser/
