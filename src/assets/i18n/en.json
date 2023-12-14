@@ -6,7 +6,7 @@
       "NUMBER_OF_DAYS": {
         "LABEL": "Number of days:",
         "PLACEHOLDER": "e.g. '365'",
-        "TITLE": "Enter the number of days per year",
+        "TITLE": "Enter the number of days per year on which the appliance consumes energy",
         "SUFFIX": "days / year",
         "VALIDATION-ERROR": {
           "REQUIRED": "Number of days is required",
@@ -16,6 +16,7 @@
         "CONSUMPTION_PER_DAY": {
           "LABEL": "Consumption per Day:",
           "PLACEHOLDER": "e.g. '12'",
+          "TITLE": "Enter the device's average daily energy consumption",
           "SUFFIX": "kWh / day",
           "VALIDATION-ERROR": {
             "REQUIRED": "Consumption per Day is required",

@@ -28,8 +28,10 @@
 
     <mat-form-field class="example-full-width" appearance="outline">
       <mat-label>{{ 'YEARLY_COSTS.FORM.ELECTRICITY_PRICE.LABEL' | translate }}</mat-label>
-      <input matInput placeholder="{{ 'YEARLY_COSTS.FORM.ELECTRICITY_PRICE.PLACEHOLDER' | translate }}" type="number" id="electricityPrice" formControlName="electricityPrice"
-             title="{{ 'YEARLY_COSTS.FORM.STANDBY_HOURS_PER_DAY.ELECTRICITY_PRICE.TITLE' | translate }}">
+      <input matInput placeholder="{{ 'YEARLY_COSTS.FORM.ELECTRICITY_PRICE.PLACEHOLDER' | translate }}"
+             type="number" id="electricityPrice"
+             formControlName="electricityPrice"
+             title="{{ 'YEARLY_COSTS.FORM.ELECTRICITY_PRICE.TITLE' | translate }}">
       <span matTextSuffix>{{ 'YEARLY_COSTS.FORM.ELECTRICITY_PRICE.SUFFIX' | translate }}</span>
       <mat-error *ngIf="electricityPriceControl?.hasError('required')">{{ 'YEARLY_COSTS.FORM.ELECTRICITY_PRICE.VALIDATION-ERROR.REQUIRED' | translate }}</mat-error>
       <mat-error *ngIf="electricityPriceControl?.hasError('min')">{{ 'YEARLY_COSTS.FORM.ELECTRICITY_PRICE.VALIDATION-ERROR.MIN' | translate }}</mat-error>
