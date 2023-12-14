@@ -1,0 +1,74 @@
+{
+  "YEARLY-CONSUMPTION": {
+    "TITLE": "Yearly Consumption",
+    "SUBTITLE": "[kWh / year]",
+    "FORM": {
+      "NUMBER_OF_DAYS": {
+        "LABEL": "Number of days:",
+        "PLACEHOLDER": "e.g. '365'",
+        "TITLE": "Enter the number of days per year on which the appliance consumes energy",
+        "SUFFIX": "days / year",
+        "VALIDATION-ERROR": {
+          "REQUIRED": "Number of days is required",
+          "MIN": "Number of days must be greater than or equal to 0.",
+          "MAX": "Number of days cannot exceed 365."
+        },
+        "CONSUMPTION_PER_DAY": {
+          "LABEL": "Consumption per Day:",
+          "PLACEHOLDER": "e.g. '12'",
+          "TITLE": "Enter the device's average daily energy consumption",
+          "SUFFIX": "kWh / day",
+          "VALIDATION-ERROR": {
+            "REQUIRED": "Consumption per Day is required",
+            "MIN": "Consumption per Day must be greater than or equal to 0"
+          }
+        }
+      }
+    },
+    "CARD": {
+      "SUB-TITLE:": "resulting yearly consumption",
+      "CONTENT-UNIT": "kWh / year"
+    }
+  },
+  "YEARLY_COSTS": {
+    "TITLE": "Yearly Costs",
+    "SUBTITLE": "[€ / year]",
+    "FORM": {
+      "STANDBY_DEVICE_CONSUMPTION": {
+        "LABEL": "Standby Device consumption per hour:",
+        "PLACEHOLDER": "e.g. '17'",
+        "TITLE": "Enter the device's power consumption per hour",
+        "SUFFIX": "W / hour",
+        "VALIDATION-ERROR": {
+          "REQUIRED": "Standby Device consumption is required",
+          "MIN": "Standby Device consumption must be greater than or equal to 0"
+        }
+      },
+      "STANDBY_HOURS_PER_DAY": {
+        "LABEL": "Standby hours per day:",
+        "PLACEHOLDER": "e.g. '24'",
+        "TITLE": "Enter the number of standby-hours per day",
+        "SUFFIX": "h / day",
+        "VALIDATION-ERROR": {
+          "REQUIRED": "Standby hours per day is required",
+          "MIN": "Standby hours per day must be greater than or equal to 0",
+          "MAX": "Standby hours per day cannot exceed 24"
+        }
+      },
+      "ELECTRICITY_PRICE": {
+        "LABEL": "Electricity price:",
+        "PLACEHOLDER": "e.g. '0.35'",
+        "TITLE": "Enter the price of each kilo-Watt by the hour",
+        "SUFFIX": "€ / kWh",
+        "VALIDATION-ERROR": {
+          "REQUIRED": "The electricity price is required",
+          "MIN": "The electricity price must be greater than or equal to 0"
+        }
+      }
+    },
+    "CARD": {
+      "SUB-TITLE": "resulting yearly costs:",
+      "CONTENT-UNIT": "€ / year"
+    }
+  }
+}
