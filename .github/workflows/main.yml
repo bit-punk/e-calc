@@ -12,25 +12,38 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      # checkout the repository
       - name: Checkout Repository
         uses: actions/checkout@v4
 
+      # setup Node.js
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 18
 
+      # install required dependencies
       - name: Install Dependencies
         run: npm install
 
+      # build Angular-app
       - name: Build Angular App
         run: npm run build
 
+      # create ZIP-archive from build-artifacts
       - name: Create ZIP-archive
         run: zip -r e-calc.zip ./dist/e-calc/
 
+      # upload ZIP-archive
       - name: Upload artifacts
         uses: actions/upload-artifact@v3
         with:
           name: e-calc
           path: e-calc.zip
+
+      # Now that the app is built, use the actions/gh-pages action to deploy it to github-pages
+      - name: Deploy to GitHub Pages
+        uses: actions/gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./docs
