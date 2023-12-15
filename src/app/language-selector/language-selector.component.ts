@@ -23,7 +23,7 @@ export class LanguageSelectorComponent implements OnInit {
   currentLang: string = "";      // Language currently in use
   supportedLanguages: string[] = []; // Languages supported by your application
   private locales: string[] = ['en', 'de'];
-  private iconBaseDir = "../assets/img/";
+  private iconBaseDir = "assets/img/";
 
   constructor(
     public translateService: TranslateService,
