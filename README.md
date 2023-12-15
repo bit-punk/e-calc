@@ -78,3 +78,7 @@ Once you have successfully installed Node.js and the Angular cli-tools, you can 
 The versioning schema-used for this project is _git-flow_:
 
 * [git-flow cheatsheet](https://danielkummer.github.io/git-flow-cheatsheet/)
+
+# Links
+* [CI/CD for Angular Developers](https://betterprogramming.pub/ci-cd-for-angular-developers-be9a1485d22b)
+* [Deploy to GitHub Pages](https://angular.io/guide/deployment#deploy-to-github-pages)
