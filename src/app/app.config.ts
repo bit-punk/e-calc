@@ -7,8 +7,10 @@ import {HttpClient, provideHttpClient} from "@angular/common/http";
 import {TranslateLoader, TranslateModule} from "@ngx-translate/core";
 import {TranslateHttpLoader} from "@ngx-translate/http-loader";
 
-export function HttpLoaderFactory(http: HttpClient) {
-  return new TranslateHttpLoader(http);
+const assetsI18n = 'assets/i18n/';
+
+export function createTranslateHttpLoader(http: HttpClient) {
+  return new TranslateHttpLoader(http, assetsI18n);
 }
 
 export const appConfig: ApplicationConfig = {
@@ -18,7 +20,7 @@ export const appConfig: ApplicationConfig = {
       defaultLanguage: 'en',
       loader: {
         provide: TranslateLoader,
-        useFactory: HttpLoaderFactory,
+        useFactory: createTranslateHttpLoader,
         deps: [HttpClient]
       }
     }).providers!]
