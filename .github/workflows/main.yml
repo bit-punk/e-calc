@@ -35,7 +35,7 @@ jobs:
 
       # build Angular-app
       - name: Build Angular App
-        run: npx ng build
+        run: npx ng build --configuration=production --base-href=/${{ env.APP_NAME }}/
 
       # create ZIP-archive from build-artifacts
       - name: Create ZIP-archive
