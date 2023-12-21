@@ -1,0 +1,98 @@
+<div class="framed">
+  <h2>{{ 'CONSUMPTION_CALCULATOR.TITLE' | translate }} <span
+    class="sub-heading">{{ 'CONSUMPTION_CALCULATOR.SUBTITLE' | translate }}</span></h2>
+  <form class="example-form" [formGroup]="yearlyCostsCalculatorForm">
+
+    <mat-grid-list cols="2" rowHeight="4:3">
+      <mat-grid-tile>
+        <mat-form-field class="example-full-width" appearance="outline">
+          <mat-label>{{ 'CONSUMPTION_CALCULATOR.FORM.STANDBY_HOURS.LABEL' | translate }}</mat-label>
+          <input matInput placeholder="{{ 'CONSUMPTION_CALCULATOR.FORM.STANDBY_HOURS.PLACEHOLDER' | translate }}"
+                 type="number" id="standbyHoursPerDay" formControlName="standbyHoursPerDay"
+                 title="{{ 'CONSUMPTION_CALCULATOR.FORM.STANDBY_HOURS.TITLE' | translate }}">
+          <mat-error
+            *ngIf="standbyHoursPerDayControl?.hasError('required')">{{ 'CONSUMPTION_CALCULATOR.FORM.STANDBY_HOURS_PER_DAY.VALIDATION-ERROR.REQUIRED' | translate }}
+          </mat-error>
+          <mat-error
+            *ngIf="standbyHoursPerDayControl?.hasError('min')">{{ 'CONSUMPTION_CALCULATOR.FORM.STANDBY_HOURS_PER_DAY.VALIDATION-ERROR.MIN' | translate }}
+          </mat-error>
+          <mat-error
+            *ngIf="standbyHoursPerDayControl?.hasError('max')">{{ 'CONSUMPTION_CALCULATOR.FORM.STANDBY_HOURS_PER_DAY.VALIDATION-ERROR.MAX' | translate }}
+          </mat-error>
+        </mat-form-field>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <mat-form-field appearance="outline">
+          <mat-label>Select an option</mat-label>
+          <mat-select [(value)]="selectedValue" required>
+            <mat-option *ngFor="let period of timePeriod | keyvalue" [value]="period.value">
+              {{period.value}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </mat-grid-tile>
+
+      <mat-grid-tile>
+        <mat-form-field class="example-full-width" appearance="outline">
+          <mat-label>{{ 'CONSUMPTION_CALCULATOR.FORM.STANDBY_DEVICE_CONSUMPTION.LABEL' | translate }}</mat-label>
+          <input matInput
+                 placeholder="{{ 'CONSUMPTION_CALCULATOR.FORM.STANDBY_DEVICE_CONSUMPTION.PLACEHOLDER' | translate }}"
+                 type="number"
+                 id="standbyDeviceConsumption"
+                 formControlName="standbyDeviceConsumption"
+                 title="{{ 'CONSUMPTION_CALCULATOR.FORM.STANDBY_DEVICE_CONSUMPTION.TITLE' | translate }}">
+          <mat-error
+            *ngIf="standbyDeviceConsumptionControl?.hasError('required')">{{ 'CONSUMPTION_CALCULATOR.FORM.STANDBY_DEVICE_CONSUMPTION.VALIDATION-ERROR.REQUIRED' | translate }}
+          </mat-error>
+          <mat-error
+            *ngIf="standbyDeviceConsumptionControl?.hasError('min')">{{ 'CONSUMPTION_CALCULATOR.FORM.STANDBY_DEVICE_CONSUMPTION.VALIDATION-ERROR.MIN' | translate }}
+          </mat-error>
+        </mat-form-field>
+      </mat-grid-tile>
+
+      <mat-grid-tile>
+        <mat-form-field appearance="outline">
+          <mat-label>Select an option</mat-label>
+          <mat-select [(value)]="selectedConsumptionTimeUnit" required>
+            <mat-option *ngFor="let consumptionTimeUnit of consumptionTimeUnit | keyvalue" [value]="consumptionTimeUnit.value">
+              {{consumptionTimeUnit.value}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </mat-grid-tile>
+    </mat-grid-list>
+
+
+    <div *ngIf="consumptionInKiloWattsHoursPerYear > 0"
+         [innerHTML]="'CONSUMPTION_CALCULATOR.FORM.CONSUMPTION_IN_KWH_PER_YEAR' | translate:{'consumptionInKiloWattsHoursPerYear': consumptionInKiloWattsHoursPerYear}">
+    </div>
+    <app-akw-display [kiloWattHoursPerYear]="consumptionInKiloWattsHoursPerYear"></app-akw-display>
+
+    <mat-form-field class="example-full-width" appearance="outline">
+      <mat-label>{{ 'CONSUMPTION_CALCULATOR.FORM.ELECTRICITY_PRICE.LABEL' | translate }}</mat-label>
+      <input matInput placeholder="{{ 'CONSUMPTION_CALCULATOR.FORM.ELECTRICITY_PRICE.PLACEHOLDER' | translate }}"
+             type="number" id="electricityPrice"
+             formControlName="electricityPrice"
+             title="{{ 'CONSUMPTION_CALCULATOR.FORM.ELECTRICITY_PRICE.TITLE' | translate }}">
+      <span matTextSuffix>{{ 'CONSUMPTION_CALCULATOR.FORM.ELECTRICITY_PRICE.SUFFIX' | translate }}</span>
+      <mat-error
+        *ngIf="electricityPriceControl?.hasError('required')">{{ 'CONSUMPTION_CALCULATOR.FORM.ELECTRICITY_PRICE.VALIDATION-ERROR.REQUIRED' | translate }}
+      </mat-error>
+      <mat-error
+        *ngIf="electricityPriceControl?.hasError('min')">{{ 'CONSUMPTION_CALCULATOR.FORM.ELECTRICITY_PRICE.VALIDATION-ERROR.MIN' | translate }}
+      </mat-error>
+    </mat-form-field>
+
+    <mat-card *ngIf="yearlyCostsCalculatorForm.valid" appearance="outlined">
+      <mat-label>
+        <mat-card-subtitle>{{ 'CONSUMPTION_CALCULATOR.CARD.SUB-TITLE' | translate }}</mat-card-subtitle>
+      </mat-label>
+      <mat-card-content>
+        <p>
+          <strong>{{ costsPerYear | number:'1.2-2' }}</strong> {{ 'CONSUMPTION_CALCULATOR.CARD.CONTENT-UNIT' | translate }}
+        </p>
+      </mat-card-content>
+    </mat-card>
+
+  </form>
+</div>

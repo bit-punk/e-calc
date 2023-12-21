@@ -1,36 +1,5 @@
 {
-  "YEARLY-CONSUMPTION": {
-    "TITLE": "Yearly Consumption",
-    "SUBTITLE": "[kWh / year]",
-    "FORM": {
-      "NUMBER_OF_DAYS": {
-        "LABEL": "Number of days:",
-        "PLACEHOLDER": "e.g. '365'",
-        "TITLE": "Enter the number of days per year on which the appliance consumes energy",
-        "SUFFIX": "days / year",
-        "VALIDATION-ERROR": {
-          "REQUIRED": "Number of days is required",
-          "MIN": "Number of days must be greater than or equal to 0.",
-          "MAX": "Number of days cannot exceed 365."
-        },
-        "CONSUMPTION_PER_DAY": {
-          "LABEL": "Consumption per Day:",
-          "PLACEHOLDER": "e.g. '12'",
-          "TITLE": "Enter the device's average daily energy consumption",
-          "SUFFIX": "kWh / day",
-          "VALIDATION-ERROR": {
-            "REQUIRED": "Consumption per Day is required",
-            "MIN": "Consumption per Day must be greater than or equal to 0"
-          }
-        }
-      }
-    },
-    "CARD": {
-      "SUB-TITLE:": "resulting yearly consumption",
-      "CONTENT-UNIT": "kWh / year"
-    }
-  },
-  "YEARLY_COSTS": {
+  "CONSUMPTION_CALCULATOR": {
     "TITLE": "Yearly Costs",
     "SUBTITLE": "[€ / year]",
     "FORM": {
@@ -64,11 +33,15 @@
           "REQUIRED": "The electricity price is required",
           "MIN": "The electricity price must be greater than or equal to 0"
         }
-      }
+      },
+      "CONSUMPTION_IN_KWH_PER_YEAR": "This corresponds to an annual consumption of <strong>{{ consumptionInKiloWattsHoursPerYear }}</strong> kWh / year"
     },
     "CARD": {
       "SUB-TITLE": "resulting yearly costs:",
       "CONTENT-UNIT": "€ / year"
     }
+  },
+  "AKW_DISPLAY": {
+    "LABEL": "Extrapolated to all households in the Federal Republic of Germany, this would correspond to the annual output of <strong>{{ totalNumberOfAKWs }}</strong> nuclear power plants"
   }
 }

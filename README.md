@@ -75,7 +75,7 @@ Once you have successfully installed Node.js and the Angular cli-tools, you can 
 
 # GitFlow
 
-The versioning schema-used for this project is _git-flow_:
+The branching schema-used for this project is _git-flow_:
 
 * [git-flow cheatsheet](https://danielkummer.github.io/git-flow-cheatsheet/)
 

@@ -1,4 +1,4 @@
-<div *ngIf="totalNumberOfAKWs > 0"><strong>{{ totalNumberOfAKWs | number:'1.2-2' }}</strong> AKWs</div>
+<div *ngIf="totalNumberOfAKWs > 0" [innerHTML]="'AKW_DISPLAY.LABEL' | translate: {'totalNumberOfAKWs':  totalNumberOfAKWs | number:'1.2-2'}"></div>
 <div class="akw-grid">
   <div *ngFor="let _ of akwArray; let i = index" class="{{ calculateIconWidthAndCSSName(i).calculatedCssName }}"
        [class.active]="i < filledIcons" [style.width.px]="calculateIconWidthAndCSSName(i).calculatedWidth"></div>

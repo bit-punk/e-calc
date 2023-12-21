@@ -1,11 +1,12 @@
 import {Component, Input} from '@angular/core';
 import {ReactiveFormsModule} from "@angular/forms";
 import {DecimalPipe, JsonPipe, NgForOf, NgIf, NgOptimizedImage} from "@angular/common";
+import {TranslateModule} from "@ngx-translate/core";
 
 @Component({
   selector: 'app-akw-display',
   standalone: true,
-  imports: [JsonPipe, ReactiveFormsModule, NgIf, NgOptimizedImage, NgForOf, DecimalPipe],
+  imports: [JsonPipe, ReactiveFormsModule, NgIf, NgOptimizedImage, NgForOf, DecimalPipe, TranslateModule],
   templateUrl: './akw-display.component.html',
   styleUrls: ['./akw-display.component.css']
 })

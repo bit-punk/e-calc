@@ -1,22 +1,25 @@
 import {Component, OnInit} from '@angular/core';
-import {FormBuilder, FormGroup, ReactiveFormsModule} from '@angular/forms';
-import {Validators} from '@angular/forms';
-import {DecimalPipe, JsonPipe, NgIf} from "@angular/common";
-import {AkwDisplayComponent} from "../akw-display/akw-display.component";
-import {MatFormFieldModule} from "@angular/material/form-field";
+import {TranslateModule} from "@ngx-translate/core";
+import {DecimalPipe, KeyValuePipe, NgForOf, NgIf} from "@angular/common";
 import {MatInputModule} from "@angular/material/input";
 import {MatCardModule} from "@angular/material/card";
-import {TranslateModule} from "@ngx-translate/core";
+import {AkwDisplayComponent} from "../akw-display/akw-display.component";
+import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
+import {MatOptionModule} from "@angular/material/core";
+import {MatSelectModule} from "@angular/material/select";
+import {MatIconModule} from "@angular/material/icon";
+import {MatGridListModule} from "@angular/material/grid-list";
+import { TimePeriod } from './time-period.enum';
+import { ConsumptionTimeUnit } from './consumption-time-unit.enum';
 
 @Component({
+  selector: 'app-consumption-calculator',
   standalone: true,
-  selector: 'app-calculator',
-  templateUrl: './yearly-costs-calculator.component.html',
-  imports: [NgIf, ReactiveFormsModule, JsonPipe, DecimalPipe, AkwDisplayComponent, MatFormFieldModule, MatInputModule, MatCardModule, TranslateModule],
-  styleUrls: ['../app.component.css', './yearly-costs-calculator.component.css']
+  imports: [TranslateModule, NgIf, MatInputModule, MatCardModule, AkwDisplayComponent, DecimalPipe, ReactiveFormsModule, MatOptionModule, MatSelectModule, MatIconModule, MatGridListModule, KeyValuePipe, NgForOf],
+  templateUrl: './consumption-calculator.component.html',
+  styleUrls: ['../app.component.css','./consumption-calculator.component.css']
 })
-
-export class YearlyCostsCalculatorComponent implements OnInit {
+export class ConsumptionCalculatorComponent implements OnInit {
   private readonly HOURS_PER_DAY = 24;
 
   yearlyCostsCalculatorForm: FormGroup = this.formBuilder.group({
@@ -26,6 +29,11 @@ export class YearlyCostsCalculatorComponent implements OnInit {
   });
   consumptionInKiloWattsHoursPerYear: number = -1;
   costsPerYear: number = -1;
+  timePeriod = TimePeriod;
+  selectedValue: TimePeriod = this.timePeriod.StundenTag;
+
+  consumptionTimeUnit = ConsumptionTimeUnit;
+  selectedConsumptionTimeUnit: ConsumptionTimeUnit = this.consumptionTimeUnit.WattPerHour;
 
   constructor(private formBuilder: FormBuilder) {
   }
@@ -65,5 +73,9 @@ export class YearlyCostsCalculatorComponent implements OnInit {
 
   get standbyHoursPerDayControl() {
     return this.yearlyCostsCalculatorForm.get('standbyHoursPerDay');
+  }
+
+  onChangeTimeUnitChange($event: any) {
+
   }
 }

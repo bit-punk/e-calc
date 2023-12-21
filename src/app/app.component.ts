@@ -1,8 +1,6 @@
 import {Component} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {RouterOutlet} from '@angular/router';
-import {YearlyCostsCalculatorComponent} from "./yearly-costs-calculator/yearly-costs-calculator.component";
-import {YearlyConsumptionCalculatorComponent} from "./yearly-consumption-calculator/yearly-consumption-calculator.component";
 import {AkwDisplayComponent} from "./akw-display/akw-display.component";
 import {FormsModule} from "@angular/forms";
 import {MatSelectModule} from "@angular/material/select";
@@ -10,6 +8,7 @@ import {MatIconModule} from "@angular/material/icon";
 import { HttpClientModule } from "@angular/common/http";
 import {LanguageSelectorComponent} from "./language-selector/language-selector.component";
 import {TranslateService} from "@ngx-translate/core";
+import {ConsumptionCalculatorComponent} from "./consumption-calculator/consumption-calculator.component";
 
 @Component({
   selector: 'app-root',
@@ -17,14 +16,13 @@ import {TranslateService} from "@ngx-translate/core";
   imports: [
     CommonModule,
     RouterOutlet,
-    YearlyCostsCalculatorComponent,
-    YearlyConsumptionCalculatorComponent,
     AkwDisplayComponent,
     FormsModule,
     MatSelectModule,
     MatIconModule,
     HttpClientModule,
-    LanguageSelectorComponent
+    LanguageSelectorComponent,
+    ConsumptionCalculatorComponent
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'

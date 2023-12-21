@@ -1,58 +1,26 @@
 {
-  "YEARLY-CONSUMPTION": {
+  "CONSUMPTION_CALCULATOR": {
     "TITLE": "Jahresverbrauch",
     "SUBTITLE": "[kWh / Jahr]",
     "FORM": {
-      "NUMBER_OF_DAYS": {
-        "LABEL": "Anzahl der Tage:",
-        "PLACEHOLDER": "z.B. '365'",
-        "TITLE": "Geben Sie die Anzahl der Tage pro Jahr ein an denen das Gerät Energie verbraucht",
-        "SUFFIX": "Tage / Jahr",
-        "VALIDATION-ERROR": {
-          "REQUIRED": "Die Anzahl der Tage ist erforderlich",
-          "MIN": "Die Anzahl der Tage muss 0 oder mehr sein.",
-          "MAX": "Die Anzahl der Tage kann 365 nicht überschreiten."
-        },
-        "CONSUMPTION_PER_DAY": {
-          "LABEL": "Verbrauch pro Tag:",
-          "PLACEHOLDER": "z.B. '12'",
-          "TITLE": "Geben sie den durchschnittlichen täglichen Energieverbrauch des Gerätes ein",
-          "SUFFIX": "kWh / Tag",
-          "VALIDATION-ERROR": {
-            "REQUIRED": "Verbrauch pro Tag ist erforderlich",
-            "MIN": "Verbrauch pro Tag muss 0 oder mehr sein"
-          }
-        }
-      }
-    },
-    "CARD": {
-      "SUB-TITLE:": "resultierender Jahresverbrauch",
-      "CONTENT-UNIT": "kWh / Jahr"
-    }
-  },
-  "YEARLY_COSTS": {
-    "TITLE": "Jährliche Kosten",
-    "SUBTITLE": "[€ / Jahr]",
-    "FORM": {
-      "STANDBY_DEVICE_CONSUMPTION": {
-        "LABEL": "Standby-Geräteverbrauch pro Stunde:",
-        "PLACEHOLDER": "z.B. '17'",
-        "TITLE": "Geben Sie den Leistungsverbrauch des Geräts pro Stunde ein",
-        "SUFFIX": "W / Stunde",
-        "VALIDATION-ERROR": {
-          "REQUIRED": "Standby-Geräteverbrauch ist erforderlich",
-          "MIN": "Standby-Geräteverbrauch muss größer oder gleich 0 sein"
-        }
-      },
-      "STANDBY_HOURS_PER_DAY": {
-        "LABEL": "Standby-Stunden pro Tag:",
-        "PLACEHOLDER": "z.B. '24'",
+      "STANDBY_HOURS": {
+        "LABEL": "Standby-Zeiten:",
+        "PLACEHOLDER": "z.B. '24' Stunden pro Tag",
         "TITLE": "Geben Sie die Anzahl der Standby-Stunden pro Tag ein",
-        "SUFFIX": "h / Tag",
         "VALIDATION-ERROR": {
           "REQUIRED": "Standby-Stunden pro Tag sind erforderlich",
           "MIN": "Standby-Stunden pro Tag müssen größer oder gleich 0 sein",
           "MAX": "Standby-Stunden pro Tag dürfen 24 nicht überschreiten"
+        }
+      },
+      "STANDBY_DEVICE_CONSUMPTION": {
+        "LABEL": "Standby Geräteverbrauch pro Stunde:",
+        "PLACEHOLDER": "z.B. '17'",
+        "TITLE": "Geben Sie den Stromverbrauch des Geräts pro Stunde ein",
+        "SUFFIX": "W / Stunde",
+        "VALIDATION-ERROR": {
+          "REQUIRED": "Der Standby-Geräteverbrauch ist erforderlich",
+          "MIN": "Der Standby-Geräteverbrauch muss größer oder gleich 0 sein"
         }
       },
       "ELECTRICITY_PRICE": {
@@ -64,11 +32,15 @@
           "REQUIRED": "Der Strompreis ist erforderlich",
           "MIN": "Der Strompreis muss größer oder gleich 0 sein"
         }
-      }
+      },
+      "CONSUMPTION_IN_KWH_PER_YEAR": "Dies entspricht einem jährlichen Verbrauch von <strong>{{ consumptionInKiloWattsHoursPerYear }}</strong> kWh / Jahr"
     },
     "CARD": {
       "SUB-TITLE": "resultierende jährliche Kosten:",
       "CONTENT-UNIT": "€ / Jahr"
     }
+  },
+  "AKW_DISPLAY": {
+    "LABEL": "Plakativ hochgerechnet auf alle Haushalte der BRD entspräche dies der jährlich erzeugten Leistung von <strong>{{ totalNumberOfAKWs }}</strong> AKWs"
   }
 }
